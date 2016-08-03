@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    $('.west-australia').click(function() {
+    setMapCoordinates();
+	$('.west-australia').click(function() {
         $('.currently-selected-country').text('West Australia');
     });
 	$('.east-australia').click(function() {
@@ -30,3 +31,9 @@ $(document).ready(function() {
         $('.currently-selected-country').text('Middle East');
 	});
 });
+
+function setMapCoordinates(){
+	var gameBoardHeight = Math.round($("#game-board").height());
+	var gameBoardWidth = Math.round($("#game-board").width());
+	alert(String(gameBoardHeight));
+}
