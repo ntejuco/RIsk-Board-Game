@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Risk Board Game</title>
+		<link rel="shortcut icon" type="image/x-icon" href="Risk Board.png?"/>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/
+		bootstrap/3.3.6/css/bootstrap.min.css" 
+		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
+		crossorigin="anonymous"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+		<div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+					    </button>
+					</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Reinforcements<span class="sr-only">(current)</span></a></li>
+						<li><a><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Attack</a></li>
+						<li><a><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Fortification</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a></li>
+						<li><a href="#">Logout</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+			
+			<center> <image src="Risk Board.png" USEMAP="#board-bounderies" style="width:1000px;height:600px;"> 
+			</center>
+			<map name="board-bounderies">
+				<area class="west-australia" shape="circle" coords="966,511,30">
+				<area class="east-australia" shape="circle" coords="866,511,30">
+				<area class="new-guinea" shape="circle" coords="914,407,30">
+				<area class="indonesia" shape="circle" coords="828,426,30">
+				<area class="sian" shape="circle" coords="806,327,30">
+				<area class="china" shape="circle" coords="728,305,30">
+				<area class="mongolia" shape="circle" coords="728,305,30">
+				<area class="japan" shape="circle" coords="728,305,30">
+				<area class="india" shape="circle" coords="728,305,30">		
+				<area class="middle-east" shape="circle">
+				
+			</map>
+			<script type="text/javascript" src="script-test.js"></script>
+			<div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<p>Currently Selected:</p>
+						<p class="currently-selected-country">None</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
