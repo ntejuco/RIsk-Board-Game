@@ -1,9 +1,9 @@
 $(document).ready(function() {
     setMapCoordinates();
-	$('.west-australia').click(function() {
+	$('#west-australia').click(function() {
         $('.currently-selected-country').text('West Australia');
     });
-	$('.east-australia').click(function() {
+	$('#east-australia').click(function() {
         $('.currently-selected-country').text('East Australia');
     });
 	$('.new-guinea').click(function() {
@@ -35,5 +35,14 @@ $(document).ready(function() {
 function setMapCoordinates(){
 	var gameBoardHeight = Math.round($("#game-board").height());
 	var gameBoardWidth = Math.round($("#game-board").width());
-	alert(String(gameBoardHeight));
+	var imageHeight = 892;
+	var imageWidth = 1407;
+	
+	var xCoord = (1365 / imageWidth) * gameBoardWidth;
+	var yCoord = (780 / imageHeight) * gameBoardHeight;
+	$('#west-australia').attr('coords', xCoord + "," + yCoord + ",30");
+	xCoord = (1220 / imageWidth) * gameBoardHeight;
+	yCoord = (760 / imageHeight) * gameBoardHeight;
+	$('#east-australia').attr('coords', xCoord + "," + yCoord + ",30");
+	
 }
