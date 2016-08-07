@@ -78,6 +78,27 @@ $(document).ready(function() {
 	$('#venizuela').click(function() {
         $('.currently-selected-country').text('Venizuela');
 	});
+	$('#ukraine').click(function() {
+        $('.currently-selected-country').text('Ukraine');
+	});
+	$('#southern-europe').click(function() {
+        $('.currently-selected-country').text('Southern Europe');
+	});
+	$('#northern-europe').click(function() {
+        $('.currently-selected-country').text('Northern Europe');
+	});
+	$('#scandinavia').click(function() {
+        $('.currently-selected-country').text('Scandinavia');
+	});
+	$('#western-europe').click(function() {
+        $('.currently-selected-country').text('Western Europe');
+	});
+	$('#great-britain').click(function() {
+        $('.currently-selected-country').text('Great Britain');
+	});
+	$('#iceland').click(function() {
+        $('.currently-selected-country').text('Iceland');
+	});
 });
 
 $(window).resize(function () {
@@ -195,6 +216,34 @@ function setMapCoordinates(){
 	xCoord = Math.round((328 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((494 / imageHeight) * gameBoardHeight);
 	$('#venizuela').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((825 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((227 / imageHeight) * gameBoardHeight);
+	$('#ukraine').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((718 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((364 / imageHeight) * gameBoardHeight);
+	$('#southern-europe').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((702 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((284 / imageHeight) * gameBoardHeight);
+	$('#northern-europe').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((705 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((155 / imageHeight) * gameBoardHeight);
+	$('#scandinavia').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((607 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((384 / imageHeight) * gameBoardHeight);
+	$('#western-europe').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((576 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((266 / imageHeight) * gameBoardHeight);
+	$('#great-britain').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((596 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((167 / imageHeight) * gameBoardHeight);
+	$('#iceland').attr('coords', xCoord + "," + yCoord + "," + mapArea);
 	
 	
 	
