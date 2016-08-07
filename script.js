@@ -66,6 +66,18 @@ $(document).ready(function() {
 	$('#egypt').click(function() {
         $('.currently-selected-country').text('Egypt');
 	});
+	$('#argentina').click(function() {
+        $('.currently-selected-country').text('Argentina');
+	});
+	$('#brazil').click(function() {
+        $('.currently-selected-country').text('Brazil');
+	});
+	$('#peru').click(function() {
+        $('.currently-selected-country').text('Peru');
+	});
+	$('#venizuela').click(function() {
+        $('.currently-selected-country').text('Venizuela');
+	});
 });
 
 $(window).resize(function () {
@@ -167,6 +179,22 @@ function setMapCoordinates(){
 	xCoord = Math.round((770 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((500 / imageHeight) * gameBoardHeight);
 	$('#egypt').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((364 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((729 / imageHeight) * gameBoardHeight);
+	$('#argentina').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((453 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((588 / imageHeight) * gameBoardHeight);
+	$('#brazil').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((325 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((594 / imageHeight) * gameBoardHeight);
+	$('#peru').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((328 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((494 / imageHeight) * gameBoardHeight);
+	$('#venizuela').attr('coords', xCoord + "," + yCoord + "," + mapArea);
 	
 	
 	
