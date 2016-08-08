@@ -30,9 +30,9 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Reinforcements<span class="sr-only">(current)</span></a></li>
-						<li><a><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Attack</a></li>
-						<li><a><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Fortification</a></li>
+						<li id="reinforcements" class="reinforcements active"><a><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Reinforcements<span class="sr-only">(current)</span></a></li>
+						<li id="attack" class="attack"><a><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Attack</a></li>
+						<li id="fortification" class="fortification"><a><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Fortification</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a></li>
@@ -85,8 +85,8 @@
 			<div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<p>Currently Selected:</p>
-						<p class="currently-selected-country">None</p>
+						<p>Currently Selected: <span class="currently-selected-country">None</span></p>
+						<button type="button" id="next-phase-button" class="btn btn-primary btn-lg">Next Phase</button>
 					</div>
 				</div>
 			</div>

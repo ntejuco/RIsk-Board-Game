@@ -99,6 +99,20 @@ $(document).ready(function() {
 	$('#iceland').click(function() {
         $('.currently-selected-country').text('Iceland');
 	});
+	$('#next-phase-button').click(function() {
+		if ($('#reinforcements').hasClass("active")){
+			$('#reinforcements').toggleClass("active");
+			$('#attack').toggleClass("active");
+		}
+		else if ($('#attack').hasClass("active")){
+			$('#attack').toggleClass("active");
+			$('#fortification').toggleClass("active");
+		}
+		else if ($('#fortification').hasClass("active")){
+			$('#fortification').toggleClass("active");
+			$('#reinforcements').toggleClass("active");
+		}
+	});
 });
 
 $(window).resize(function () {
