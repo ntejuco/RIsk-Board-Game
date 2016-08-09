@@ -99,6 +99,33 @@ $(document).ready(function() {
 	$('#iceland').click(function() {
         $('.currently-selected-country').text('Iceland');
 	});
+	$('#central-america').click(function() {
+        $('.currently-selected-country').text('Central America');
+	});
+	$('#eastern-united-states').click(function() {
+        $('.currently-selected-country').text('Eastern United States');
+	});
+	$('#quebec').click(function() {
+        $('.currently-selected-country').text('Quebec');
+	});
+	$('#greenland').click(function() {
+        $('.currently-selected-country').text('Greenland');
+	});
+	$('#western-united-states').click(function() {
+        $('.currently-selected-country').text('Western United States');
+	});
+	$('#ontario').click(function() {
+        $('.currently-selected-country').text('Ontario');
+	});
+	$('#alberta').click(function() {
+        $('.currently-selected-country').text('Alberta');
+	});
+	$('#northwest-territory').click(function() {
+        $('.currently-selected-country').text('Northwest Territory');
+	});
+	$('#alaska').click(function() {
+        $('.currently-selected-country').text('Alaska');
+	});
 	$('#next-phase-button').click(function() {
 		if ($('#reinforcements').hasClass("active")){
 			$('#reinforcements').toggleClass("active");
@@ -258,6 +285,42 @@ function setMapCoordinates(){
 	xCoord = Math.round((596 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((167 / imageHeight) * gameBoardHeight);
 	$('#iceland').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((225 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((406 / imageHeight) * gameBoardHeight);
+	$('#central-america').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((323 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((322 / imageHeight) * gameBoardHeight);
+	$('#eastern-united-states').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((390 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((212 / imageHeight) * gameBoardHeight);
+	$('#quebec').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((481 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((69 / imageHeight) * gameBoardHeight);
+	$('#greenland').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((216 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((290 / imageHeight) * gameBoardHeight);
+	$('#western-united-states').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((306 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((215 / imageHeight) * gameBoardHeight);
+	$('#ontario').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((206 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((185 / imageHeight) * gameBoardHeight);
+	$('#alberta').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((231 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((113 / imageHeight) * gameBoardHeight);
+	$('#northwest-territory').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	
+	xCoord = Math.round((82 / imageWidth) * gameBoardWidth);
+	yCoord = Math.round((114 / imageHeight) * gameBoardHeight);
+	$('#alaska').attr('coords', xCoord + "," + yCoord + "," + mapArea);
 	
 	
 	
