@@ -130,14 +130,20 @@ $(document).ready(function() {
 		if ($('#reinforcements').hasClass("active")){
 			$('#reinforcements').toggleClass("active");
 			$('#attack').toggleClass("active");
+			hideFortificationOptions();
+			showReinforcementsOptions();
 		}
 		else if ($('#attack').hasClass("active")){
 			$('#attack').toggleClass("active");
 			$('#fortification').toggleClass("active");
+			hideReinforcementsOptions();
+			showAttackOptions();
 		}
 		else if ($('#fortification').hasClass("active")){
 			$('#fortification').toggleClass("active");
 			$('#reinforcements').toggleClass("active");
+			hideAttackOptions();
+			showFortificationOptions();
 		}
 	});
 });
@@ -320,10 +326,30 @@ function setMapCoordinates(){
 	
 	xCoord = Math.round((82 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((114 / imageHeight) * gameBoardHeight);
-	$('#alaska').attr('coords', xCoord + "," + yCoord + "," + mapArea);
-	
-	
-	
-	
+	$('#alaska').attr('coords', xCoord + "," + yCoord + "," + mapArea);	
+}
+
+hideReinforcementsOptions(){
 	
 }
+
+hideAttackOptions(){
+	
+}
+
+hideFortificationOptions(){
+	
+}
+
+showReinforcementsOptions(){
+	
+}
+
+showAttackOptions(){
+	
+}
+
+showFortificationOptions(){
+	
+}
+
