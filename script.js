@@ -337,11 +337,13 @@ function hideReinforcementsOptions(){
 }
 
 function hideAttackOptions(){
-	$('#attack-dropdown').toggleClass("hidden");
+	$('#attack-dropdown-country').toggleClass("hidden");
+	$('#attack-dropdown-number').toggleClass("hidden");
 }
 
 function hideFortificationOptions(){
-	$('#fortification-dropdown').toggleClass("hidden");
+	$('#fortification-dropdown-country').toggleClass("hidden");
+	$('#fortification-dropdown-number').toggleClass("hidden");
 }
 
 function showReinforcementsOptions(){
@@ -349,10 +351,12 @@ function showReinforcementsOptions(){
 }
 
 function showAttackOptions(){
-	$('#attack-dropdown').toggleClass("hidden");
+	$('#attack-dropdown-country').toggleClass("hidden");
+	$('#attack-dropdown-number').toggleClass("hidden");
 }
 
 function showFortificationOptions(){
-	$('#fortification-dropdown').toggleClass("hidden");
+	$('#fortification-dropdown-country').toggleClass("hidden");
+	$('#fortification-dropdown-number').toggleClass("hidden");
 }
 
