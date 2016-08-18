@@ -130,20 +130,23 @@ $(document).ready(function() {
 		if ($('#reinforcements').hasClass("active")){
 			$('#reinforcements').toggleClass("active");
 			$('#attack').toggleClass("active");
-			hideFortificationOptions();
-			showReinforcementsOptions();
+			$('#action-on-country-indicator').text("Attack from: ");
+			hideReinforcementsOptions();
+			showAttackOptions();
 		}
 		else if ($('#attack').hasClass("active")){
 			$('#attack').toggleClass("active");
 			$('#fortification').toggleClass("active");
-			hideReinforcementsOptions();
-			showAttackOptions();
+			$('#action-on-country-indicator').text("Fortify from: ");
+			hideAttackOptions();
+			showFortificationOptions();
 		}
 		else if ($('#fortification').hasClass("active")){
 			$('#fortification').toggleClass("active");
 			$('#reinforcements').toggleClass("active");
-			hideAttackOptions();
-			showFortificationOptions();
+			$('#action-on-country-indicator').text("Add Reinforcements to: ");
+			hideFortificationOptions();
+			showReinforcementsOptions();
 		}
 	});
 });
@@ -329,27 +332,27 @@ function setMapCoordinates(){
 	$('#alaska').attr('coords', xCoord + "," + yCoord + "," + mapArea);	
 }
 
-hideReinforcementsOptions(){
-	
+function hideReinforcementsOptions(){
+	$('#reinforcement-dropdown').toggleClass("hidden");
 }
 
-hideAttackOptions(){
-	
+function hideAttackOptions(){
+	$('#attack-dropdown').toggleClass("hidden");
 }
 
-hideFortificationOptions(){
-	
+function hideFortificationOptions(){
+	$('#fortification-dropdown').toggleClass("hidden");
 }
 
-showReinforcementsOptions(){
-	
+function showReinforcementsOptions(){
+	$('#reinforcement-dropdown').toggleClass("hidden");
 }
 
-showAttackOptions(){
-	
+function showAttackOptions(){
+	$('#attack-dropdown').toggleClass("hidden");
 }
 
-showFortificationOptions(){
-	
+function showFortificationOptions(){
+	$('#fortification-dropdown').toggleClass("hidden");
 }
 
