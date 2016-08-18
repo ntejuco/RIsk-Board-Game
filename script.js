@@ -130,14 +130,23 @@ $(document).ready(function() {
 		if ($('#reinforcements').hasClass("active")){
 			$('#reinforcements').toggleClass("active");
 			$('#attack').toggleClass("active");
+			$('#action-on-country-indicator').text("Attack from: ");
+			hideReinforcementsOptions();
+			showAttackOptions();
 		}
 		else if ($('#attack').hasClass("active")){
 			$('#attack').toggleClass("active");
 			$('#fortification').toggleClass("active");
+			$('#action-on-country-indicator').text("Fortify from: ");
+			hideAttackOptions();
+			showFortificationOptions();
 		}
 		else if ($('#fortification').hasClass("active")){
 			$('#fortification').toggleClass("active");
 			$('#reinforcements').toggleClass("active");
+			$('#action-on-country-indicator').text("Add Reinforcements to: ");
+			hideFortificationOptions();
+			showReinforcementsOptions();
 		}
 	});
 });
@@ -320,10 +329,30 @@ function setMapCoordinates(){
 	
 	xCoord = Math.round((82 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((114 / imageHeight) * gameBoardHeight);
-	$('#alaska').attr('coords', xCoord + "," + yCoord + "," + mapArea);
-	
-	
-	
-	
-	
+	$('#alaska').attr('coords', xCoord + "," + yCoord + "," + mapArea);	
 }
+
+function hideReinforcementsOptions(){
+	$('#reinforcement-dropdown').toggleClass("hidden");
+}
+
+function hideAttackOptions(){
+	$('#attack-dropdown').toggleClass("hidden");
+}
+
+function hideFortificationOptions(){
+	$('#fortification-dropdown').toggleClass("hidden");
+}
+
+function showReinforcementsOptions(){
+	$('#reinforcement-dropdown').toggleClass("hidden");
+}
+
+function showAttackOptions(){
+	$('#attack-dropdown').toggleClass("hidden");
+}
+
+function showFortificationOptions(){
+	$('#fortification-dropdown').toggleClass("hidden");
+}
+
