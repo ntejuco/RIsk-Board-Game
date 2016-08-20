@@ -130,21 +130,21 @@ $(document).ready(function() {
 		if ($('#reinforcements').hasClass("active")){
 			$('#reinforcements').toggleClass("active");
 			$('#attack').toggleClass("active");
-			$('#action-on-country-indicator').text("Attack from: ");
+			$('#action-on-country-indicator').text("Attack from");
 			hideReinforcementsOptions();
 			showAttackOptions();
 		}
 		else if ($('#attack').hasClass("active")){
 			$('#attack').toggleClass("active");
 			$('#fortification').toggleClass("active");
-			$('#action-on-country-indicator').text("Fortify from: ");
+			$('#action-on-country-indicator').text("Fortify from");
 			hideAttackOptions();
 			showFortificationOptions();
 		}
 		else if ($('#fortification').hasClass("active")){
 			$('#fortification').toggleClass("active");
 			$('#reinforcements').toggleClass("active");
-			$('#action-on-country-indicator').text("Add Reinforcements to: ");
+			$('#action-on-country-indicator').text("Add");
 			hideFortificationOptions();
 			showReinforcementsOptions();
 		}
@@ -334,29 +334,37 @@ function setMapCoordinates(){
 
 function hideReinforcementsOptions(){
 	$('#reinforcement-dropdown').toggleClass("hidden");
+	$('#action-on-country-indicator-2').toggleClass("hidden");
+	$('#reinforcements-remaining-text').toggleClass("hidden");
 }
 
 function hideAttackOptions(){
 	$('#attack-dropdown-country').toggleClass("hidden");
 	$('#attack-dropdown-number').toggleClass("hidden");
+	$('#attack-option-part-2').toggleClass("hidden");
 }
 
 function hideFortificationOptions(){
 	$('#fortification-dropdown-country').toggleClass("hidden");
+	$('#fortification-action-indicator-text').toggleClass("hidden");
 	$('#fortification-dropdown-number').toggleClass("hidden");
 }
 
 function showReinforcementsOptions(){
 	$('#reinforcement-dropdown').toggleClass("hidden");
+	$('#action-on-country-indicator-2').toggleClass("hidden");
+	$('#reinforcements-remaining-text').toggleClass("hidden");
 }
 
 function showAttackOptions(){
 	$('#attack-dropdown-country').toggleClass("hidden");
 	$('#attack-dropdown-number').toggleClass("hidden");
+	$('#attack-option-part-2').toggleClass("hidden");
 }
 
 function showFortificationOptions(){
 	$('#fortification-dropdown-country').toggleClass("hidden");
 	$('#fortification-dropdown-number').toggleClass("hidden");
+	$('#fortification-action-indicator-text').toggleClass("hidden");
 }
 

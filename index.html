@@ -101,17 +101,26 @@
 			<div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<p><span id="action-on-country-indicator">Add Reinforcements to: </span><span class="currently-selected-country">None</span></p>
-						<div id="reinforcement-dropdown" class="dropdown">
+						<span id="action-on-country-indicator">Add </span>
+						<div id="reinforcement-dropdown" class="dropdown lower-ui inline">
 							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								Number
+								0
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" aria-labelledby="Reinforce">
-								<li><a href="#">Action</a></li>
+								<li><a href="#">0</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
 							</ul>
 						</div>
-						<div id="attack-dropdown-country" class="dropdown hidden">
+						<span id="action-on-country-indicator-2">Reinforcements to </span><span class="currently-selected-country"><i>Select Country</i></span>
+						<span class="align-right">Card Set Bonus: <span id="bonus_number">4</span></span>
+						<span id='reinforcements-remaining-text'><br>Reinforcements Remaining: <span id="reinforcements-remaining-number">0</span></span>
+						<span id="attack-option-part-2" class="hidden"><span>to</span>
+						<div id="attack-dropdown-country" class="dropdown hidden lower-ui inline">
 							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 								Select Country
 								<span class="caret"></span>
@@ -124,20 +133,26 @@
 								<li><a href="#">Separated link</a></li>
 							</ul>
 						</div>
-						<div id="attack-dropdown-number" class="dropdown hidden">
+						<span>with</span>
+						<div id="attack-dropdown-number" class="dropdown hidden lower-ui inline">
 							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								Number
+								0
 								<span class="caret"></span>
 							</button>
-							<ul class="dropdown-menu" aria-labelledby="Attack From">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
+							<ul class="dropdown-menu" aria-labelledby="Attack Number">
+								<li><a href="#">0</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								
 							</ul>
 						</div>
-						<div id="fortification-dropdown" class="dropdown hidden">
+						<span>troops</span>
+						</span>
+						<span id="fortification-action-indicator-text" class="hidden">
+						<div id="fortification-dropdown-country" class="dropdown hidden lower-ui inline">
 							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 								Select Country
 								<span class="caret"></span>
@@ -150,7 +165,29 @@
 								<li><a href="#">Separated link</a></li>
 							</ul>
 						</div>
+						<span>to</span>
+						<div id="fortification-dropdown-number" class="dropdown hidden lower-ui inline">
+							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Number
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="Fortifify Number">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						</span>
+						<br>
 						<button type="button" id="next-phase-button" class="btn btn-primary btn-lg">Next Phase</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-lg-offset-4 col-md-offset-5">
+				<div class="panel panel-default">
+					<div class="panel-body">
 					</div>
 				</div>
 			</div>

@@ -8,6 +8,19 @@ body{
 
 #next-phase-button{
 	float:right;
+	display:block;
 }
 
 .hidden {display:none;}
+
+.align-right{
+	float:right;
+}
+
+.lower-ui .dropdown{
+	padding-top:10px;
+}
+
+.inline{
+	display:inline-block;
+}
