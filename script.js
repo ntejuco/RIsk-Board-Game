@@ -157,8 +157,8 @@ $(window).resize(function () {
 
 function setMapCoordinates(){
 	var xCoord, yCoord,
-	gameBoardHeight = $("#game-board").height(),
-	gameBoardWidth = $("#game-board").width(),
+	gameBoardHeight = $("#game-board-image").height(),
+	gameBoardWidth = $("#game-board-image").width(),
 	imageHeight = 892,
 	imageWidth = 1407,
 	mapArea = Math.round(30 / imageHeight * gameBoardHeight);	
@@ -166,6 +166,10 @@ function setMapCoordinates(){
 	xCoord = Math.round((1365 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((780 / imageHeight) * gameBoardHeight);
 	$('#west-australia').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#west-australia-troops').css({
+		"left": Math.round(xCoord)+"px",
+		"top" : Math.round(yCoord)+"px"
+	})
 	
 	xCoord = Math.round((1220 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((760 / imageHeight) * gameBoardHeight);
@@ -367,4 +371,3 @@ function showFortificationOptions(){
 	$('#fortification-dropdown-number').toggleClass("hidden");
 	$('#fortification-action-indicator-text').toggleClass("hidden");
 }
-

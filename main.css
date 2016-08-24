@@ -2,8 +2,18 @@ body{
 	
 }
 
-#game-board {
+#game-board-image{
    width: 100%;
+}
+
+.image{
+	position: relative;
+}
+
+.troop-number{
+	position: absolute;
+	font-size:30px;
+	color:black;
 }
 
 #next-phase-button{

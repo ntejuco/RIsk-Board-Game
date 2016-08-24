@@ -21,8 +21,7 @@
 </script>
 	</head>
 	<body>
-	<div class="container-fluid"
-		<div class="col-lg-8 col-md-10 col-sm-12 col-lg-offset-2 col-md-offset-1">
+	<div class="container-fluid">
 			<nav class="navbar navbar-default">
 				<div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
@@ -48,7 +47,8 @@
 				</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
 			</nav>
-			<div class="col-lg- col-md-2">
+			
+			<div class="col-lg-2 col-md-2">
 				<div class="panel panel-default">
 					<div class="panel-body">
 					<p>Your cards:</p>
@@ -57,9 +57,13 @@
 				</div>
 			</div>
 			
-			<div class="container">
-			<image id="game-board" src="Risk Board.png" USEMAP="#board-bounderies"> 
+			<div class="col-lg-8 col-md-8 col-sm-12 container">
+				<div class="image">
+					<image id="game-board-image" class="game-board" src="Risk Board.png" USEMAP="#board-bounderies"> 
+					<span id="west-australia-troops" class="troop-number">3</span>
+				</div>
 			</div>
+			<div class="clearfix visible-sm-block"></div>
 			
 			<map name="board-bounderies">
 				<area id="west-australia" shape="circle">
@@ -103,10 +107,11 @@
 				<area id="ontario" shape="circle">
 				<area id="alberta" shape="circle">
 				<area id="northwest-territory" shape="circle">
-				<area id="alaska" shape="circle">
-				
+				<area id="alaska" shape="circle">				
 			</map>
-			<div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1">
+			
+			
+			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="col-lg-6 col-md-6">
@@ -197,7 +202,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>	
 	</body>
 </html>
