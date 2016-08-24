@@ -174,166 +174,330 @@ function setMapCoordinates(){
 	xCoord = Math.round((1220 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((760 / imageHeight) * gameBoardHeight);
 	$('.east-australia').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#east-australia-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((1286 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((606 / imageHeight) * gameBoardHeight);
 	$('.new-guinea').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#new-guinea-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((1168 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((630 / imageHeight) * gameBoardHeight);
 	$('.indonesia').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#indonesia-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((1138 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((492 / imageHeight) * gameBoardHeight);
 	$('.sian').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#sian-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((1020 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((449 / imageHeight) * gameBoardHeight);
 	$('.india').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#india-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((1104 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((378 / imageHeight) * gameBoardHeight);
 	$('.china').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#china-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((1140 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((292 / imageHeight) * gameBoardHeight);
 	$('.mongolia').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#mongolia-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((1280 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((297 / imageHeight) * gameBoardHeight);
 	$('.japan').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#japan-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((1120 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((209 / imageHeight) * gameBoardHeight);
 	$('.irkutsk').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#irkutsk-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((1232 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((103 / imageHeight) * gameBoardHeight);
 	$('.kamchatka').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#kamchatka-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((1134 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((92 / imageHeight) * gameBoardHeight);
 	$('.yakutsk').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#yakutsk-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((868 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((456 / imageHeight) * gameBoardHeight);
 	$('.middle-east').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#middle-east-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((942 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((317 / imageHeight) * gameBoardHeight);
 	$('.afghanistan').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#afghanistan-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((962 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((200 / imageHeight) * gameBoardHeight);
 	$('.ural').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#ural-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((1032 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((138 / imageHeight) * gameBoardHeight);
 	$('.siberia').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#siberia-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((782 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((789 / imageHeight) * gameBoardHeight);
 	$('.south-africa').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#south-africa-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((907 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((782 / imageHeight) * gameBoardHeight);
 	$('.madagascar').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#madagascar-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((771 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((657 / imageHeight) * gameBoardHeight);
 	$('.congo').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#congo-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((855 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((615 / imageHeight) * gameBoardHeight);
 	$('.east-africa').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#east-africa-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((647 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((566 / imageHeight) * gameBoardHeight);
 	$('.north-africa').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#north-africa-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((770 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((500 / imageHeight) * gameBoardHeight);
 	$('.egypt').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#egypt-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((364 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((729 / imageHeight) * gameBoardHeight);
 	$('.argentina').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#argentina-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((453 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((588 / imageHeight) * gameBoardHeight);
 	$('.brazil').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#brazil-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((325 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((594 / imageHeight) * gameBoardHeight);
 	$('.peru').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#peru-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((328 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((494 / imageHeight) * gameBoardHeight);
 	$('.venizuela').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#venizuela-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((825 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((227 / imageHeight) * gameBoardHeight);
 	$('.ukraine').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#ukraine-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((718 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((364 / imageHeight) * gameBoardHeight);
 	$('.southern-europe').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#southern-europe-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((702 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((284 / imageHeight) * gameBoardHeight);
 	$('.northern-europe').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#northern-europe-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((705 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((155 / imageHeight) * gameBoardHeight);
 	$('.scandinavia').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#scandinavia-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((607 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((384 / imageHeight) * gameBoardHeight);
 	$('.western-europe').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#western-europe-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((576 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((266 / imageHeight) * gameBoardHeight);
 	$('.great-britain').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#great-britain-troops').css({
+		"left": Math.round(xCoord-(mapArea/2) + 15)+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((596 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((167 / imageHeight) * gameBoardHeight);
 	$('.iceland').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#iceland-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((225 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((406 / imageHeight) * gameBoardHeight);
 	$('.central-america').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#central-america-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2) - 15)+"px"
+	})
 	
 	xCoord = Math.round((323 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((322 / imageHeight) * gameBoardHeight);
 	$('.eastern-united-states').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#eastern-united-states-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((390 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((212 / imageHeight) * gameBoardHeight);
 	$('.quebec').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#quebec-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((481 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((69 / imageHeight) * gameBoardHeight);
 	$('.greenland').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#greenland-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((216 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((290 / imageHeight) * gameBoardHeight);
 	$('.western-united-states').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#western-united-states-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((306 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((215 / imageHeight) * gameBoardHeight);
 	$('.ontario').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#ontario-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((206 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((185 / imageHeight) * gameBoardHeight);
 	$('.alberta').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#alberta-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((231 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((113 / imageHeight) * gameBoardHeight);
 	$('.northwest-territory').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#northwest-territory-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 	
 	xCoord = Math.round((82 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((114 / imageHeight) * gameBoardHeight);
 	$('.alaska').attr('coords', xCoord + "," + yCoord + "," + mapArea);	
+	$('#alaska-troops').css({
+		"left": Math.round(xCoord-(mapArea/2))+"px",
+		"top" : Math.round(yCoord-(mapArea/2))+"px"
+	})
 }
 
 function hideReinforcementsOptions(){
