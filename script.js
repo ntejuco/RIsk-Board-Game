@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    setMapCoordinates();
+    setMapAttributes();
 	$('.west-australia').click(function() {
         $('.currently-selected-country').text('West Australia');
     });
@@ -152,10 +152,10 @@ $(document).ready(function() {
 });
 
 $(window).resize(function () {
-	setMapCoordinates();
+	setMapAttributes();
 });
 
-function setMapCoordinates(){
+function setMapAttributes(){
 	var xCoord, yCoord,
 	gameBoardHeight = $("#game-board-image").height(),
 	gameBoardWidth = $("#game-board-image").width(),
