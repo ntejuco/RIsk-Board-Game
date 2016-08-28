@@ -1,3 +1,6 @@
+
+
+
 $(document).ready(function() {
     setMapAttributes();
 	$('.west-australia').click(function() {
@@ -149,6 +152,17 @@ $(document).ready(function() {
 			showReinforcementsOptions();
 		}
 	});
+	getNumPlayers = true;
+	errOutput = "";
+	while (getNumPlayers == true){
+		numberOfPlayers = prompt("Please enter the number of players (2-6)" + errOutput, 3);
+		if (numberOfPlayers <= 6 && numberOfPlayers >= 2){
+			getNumPlayers = false;
+		}
+		else{
+			errOutput = "\nPlease enter a number";
+		}
+	}
 });
 
 $(window).resize(function () {
