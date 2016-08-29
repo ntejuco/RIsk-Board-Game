@@ -158,6 +158,7 @@ $(document).ready(function() {
 		numberOfPlayers = prompt("Please enter the number of players (2-6)" + errOutput, 3);
 		if (numberOfPlayers <= 6 && numberOfPlayers >= 2){
 			getNumPlayers = false;
+			setPlayerStats(numberOfPlayers);
 		}
 		else{
 			errOutput = "\nPlease enter a number";
@@ -548,4 +549,8 @@ function showFortificationOptions(){
 	$('#fortification-dropdown-country').toggleClass("hidden");
 	$('#fortification-dropdown-number').toggleClass("hidden");
 	$('#fortification-action-indicator-text').toggleClass("hidden");
+}
+
+function setPlayerStats(){
+	
 }

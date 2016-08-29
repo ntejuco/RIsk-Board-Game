@@ -42,7 +42,7 @@
 						<li id="fortification" class="fortification"><a><span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span> Fortification</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Logout</a></li>
+						<li><a href="#">Reset</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
@@ -51,7 +51,9 @@
 			<div class="col-lg-2 col-md-2">
 				<div class="panel panel-default">
 					<div class="panel-body">
-					<p>Your cards:</p>
+					<p class="info-panel-header">Your cards:</p>
+					<p>Card Set Bonus: <span id="bonus_number">4</span></p>
+					<br>
 					<p><i>Empty</i></p>
 					</div>
 				</div>
@@ -151,6 +153,55 @@
 				<area class="alaska" shape="circle">				
 			</map>
 			
+			<div class="col-lg-2 col-md-2">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<p class="info-panel-header">Player Statistics:</p>
+						<div id="black-player-elements" class="player-stats-detail">
+							<p class="player-headings">Black</p>
+							<p>Counties Controlled: <span id="black-countries">0</span></p>
+							<p>Continents Controlled: <span id="black-continents">0</span></p>
+							<p>Total Troops: <span id="black-troops">0</span></p>
+						</div>
+						<div id="white-player-elements" class="player-stats-detail">
+							<p class="player-headings">White</p>
+							<p>Counties Controlled: <span id="white-countries">0</span></p>
+							<p>Continents Controlled: <span id="white-continents">0</span></p>
+							<p>Total Troops: <span id="white-troops">0</span></p>
+						</div>
+						<div id="blue-player-elements" class="player-stats-detail hidden">
+							<p class="player-headings">Blue</p>
+							<p>Counties Controlled: <span id="blue-countries">0</span></p>
+							<p>Continents Controlled: <span id="blue-continents">0</span></p>
+							<p>Total Troops: <span id="blue-troops">0</span></p>
+						</div>
+						<div id="red-player-elements" class="player-stats-detail hidden">
+							<p class="player-headings">Red</p>
+							<p>Counties Controlled: <span id="red-countries">0</span></p>
+							<p>Continents Controlled: <span id="red-continents">0</span></p>
+							<p>Total Troops: <span id="red-troops">0</span></p>
+						</div>
+						<div id="yellow-player-elements" class="player-stats-detail hidden">
+							<p class="player-headings">Yellow</p>
+							<p>Counties Controlled: <span id="yellow-countries">0</span></p>
+							<p>Continents Controlled: <span id="yellow-continents">0</span></p>
+							<p>Total Troops: <span id="yelow-troops">0</span></p>
+						</div>
+						<div id="green-player-elements" class="player-stats-detail hidden">
+							<p class="player-headings">Green</p>
+							<p>Counties Controlled: <span id="green-countries">0</span></p>
+							<p>Continents Controlled: <span id="green-continents">0</span></p>
+							<p>Total Troops: <span id="green-troops">0</span></p>
+						</div>
+						<div id="pink-player-elements" class="player-stats-detail hidden">
+							<p class="player-headings">Pink</p>
+							<p>Counties Controlled: <span id="pink-countries">0</span></p>
+							<p>Continents Controlled: <span id="pink-continents">0</span></p>
+							<p>Total Troops: <span id="pink-troops">0</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
 			
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
@@ -236,8 +287,6 @@
 							</span>
 						</div>
 						<div clas="col-lg-6 col-md-6">
-							<span class="align-right">Card Set Bonus: <span id="bonus_number">4</span></span>
-							<br><br>
 							<button type="button" id="next-phase-button" class="btn btn-primary btn-lg">Next Phase</button>
 						</div>
 					</div>

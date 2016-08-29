@@ -35,3 +35,19 @@ body{
 	display:inline-block;
 }
 
+.info-panel-header{
+	text-align:center;
+	font-size:20px;
+}
+
+.player-headings{
+	font-size:18px;
+}
+
+.player-stats-detail{
+	
+}
+
+.player-headings{
+	text-decoration:underline;
+}
