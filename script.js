@@ -551,6 +551,17 @@ function showFortificationOptions(){
 	$('#fortification-action-indicator-text').toggleClass("hidden");
 }
 
-function setPlayerStats(){
-	
+function setPlayerStats(numberOfPlayers){
+	if (numberOfPlayers >= 3){
+		$("#blue-player-elements").toggleClass("hidden");
+	}
+	if (numberOfPlayers >= 4){
+		$("#red-player-elements").toggleClass("hidden");
+	}
+	if (numberOfPlayers >= 5){
+		$("#yellow-player-elements").toggleClass("hidden");
+	}
+	if (numberOfPlayers == 6){
+		$("#green-player-elements").toggleClass("hidden");
+	}
 }
