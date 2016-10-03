@@ -4,7 +4,13 @@ var countryArray = ["west-australia","east-australia","new-guinea","indonesia","
 					"ukraine","southern-europe","northern-europe","scandinavia","western-europe","great-britain","iceland",
 					"central-america","eastern-united-states","quebec","greenland","western-united-states","ontario",
 					"alberta","northwest-territory","alaska"];
-					
+	var blackCountries,
+		whiteCountries,
+		blueCountries,
+		redCountries,
+		yellowCountries,
+		greenCountries;
+										
 $(document).ready(function() {
     setMapAttributes();
 	getNumPlayers = true;
