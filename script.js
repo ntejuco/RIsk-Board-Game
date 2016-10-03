@@ -1,8 +1,25 @@
-
-
-
+var countryArray = ["west-australia","east-australia","new-guinea","indonesia","sian","india","china","mongolia",
+					"japan","irkutsk","kamchatka","yakutsk","middle-east","afghanistan","ural","siberia","south-africa",
+					"madagascar","congo","east-africa","north-africa","egypt","argentina","brazil","peru","venizuela",
+					"ukraine","southern-europe","northern-europe","scandinavia","western-europe","great-britain","iceland",
+					"central-america","eastern-united-states","quebec","greenland","western-united-states","ontario",
+					"alberta","northwest-territory","alaska"];
+					
 $(document).ready(function() {
     setMapAttributes();
+	getNumPlayers = true;
+	errOutput = "";
+	while (getNumPlayers == true){
+		numberOfPlayers = prompt("Please enter the number of players (2-6)" + errOutput, 3);
+		if (numberOfPlayers <= 6 && numberOfPlayers >= 2){
+			getNumPlayers = false;
+			setPlayerStats(numberOfPlayers);
+		}
+		else{
+			errOutput = "\nPlease enter a number";
+		}
+	}
+	assignCountries(numberOfPlayers);
 	$('.west-australia').click(function() {
         $('.currently-selected-country').text('West Australia');
     });
@@ -152,18 +169,6 @@ $(document).ready(function() {
 			showReinforcementsOptions();
 		}
 	});
-	getNumPlayers = true;
-	errOutput = "";
-	while (getNumPlayers == true){
-		numberOfPlayers = prompt("Please enter the number of players (2-6)" + errOutput, 3);
-		if (numberOfPlayers <= 6 && numberOfPlayers >= 2){
-			getNumPlayers = false;
-			setPlayerStats(numberOfPlayers);
-		}
-		else{
-			errOutput = "\nPlease enter a number";
-		}
-	}
 });
 
 $(window).resize(function () {
@@ -514,6 +519,10 @@ function setMapAttributes(){
 		"left": Math.round(xCoord-(mapArea/2))+"px",
 		"top" : Math.round(yCoord-(mapArea/2))+"px"
 	})
+}
+
+function assignCountries(numberOfPlayers){
+	
 }
 
 function hideReinforcementsOptions(){
