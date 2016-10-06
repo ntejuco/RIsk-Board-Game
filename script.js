@@ -4,12 +4,12 @@ var countryArray = ["west-australia","east-australia","new-guinea","indonesia","
 					"ukraine","southern-europe","northern-europe","scandinavia","western-europe","great-britain","iceland",
 					"central-america","eastern-united-states","quebec","greenland","western-united-states","ontario",
 					"alberta","northwest-territory","alaska"];
-	var blackCountries,
-		whiteCountries,
-		blueCountries,
-		redCountries,
-		yellowCountries,
-		greenCountries;
+	var blackCountries = [],
+		whiteCountries = [],
+		blueCountries = [],
+		redCountries = [],
+		yellowCountries = [],
+		greenCountries = [];	
 										
 $(document).ready(function() {
     setMapAttributes();
@@ -25,7 +25,7 @@ $(document).ready(function() {
 			errOutput = "\nPlease enter a number";
 		}
 	}
-	assignCountries(numberOfPlayers);
+	assignCountries(numberOfPlayers, countryArray);
 	$('.west-australia').click(function() {
         $('.currently-selected-country').text('West Australia');
     });
@@ -527,8 +527,60 @@ function setMapAttributes(){
 	})
 }
 
-function assignCountries(numberOfPlayers){
-	
+function assignCountries(numberOfPlayers, localCountryArray){
+	countriesPerPlayer = Math.round((42 / numberOfPlayers));
+	leftOverCountries = 42 % numberOfPlayers;
+	remainingCountries = 42;
+	for (i = 0; i <= numberOfPlayers; i++){
+		for (j = 0; j < countriesPerPlayer; j++){
+			randomNum = Math.floor(Math.random() * remainingCountries);
+			remainingCountries--;
+			if (i == 0){
+				blackCountries.push([localCountryArray[randomNum]]);
+				localCountryArray.splice(randomNum,1);
+			}
+			if (i == 1){
+				whiteCountries.push([localCountryArray[randomNum]]);
+				localCountryArray.splice(randomNum,1);
+				if (localCountryArray.length == 2){
+					whiteCountries.push(localCountryArray[1]);
+				}
+			}
+			if (i == 2){
+				blueCountries.push([localCountryArray[randomNum]]);
+				localCountryArray.splice(randomNum,1);
+				if (localCountryArray.length == 1){
+					blueCountries.push(localCountryArray);
+				}
+			}
+			if (i == 3){
+				redCountries.push([localCountryArray[randomNum]]);
+				localCountryArray.splice(randomNum,1);
+				if (localCountryArray.length == 1){
+					redCountries.push(localCountryArray);
+				}
+			}
+			if (i == 4){
+				yellowCountries.push([localCountryArray[randomNum]]);
+				localCountryArray.splice(randomNum,1);
+				if (localCountryArray.length == 1){
+					yellowCountries.push(localCountryArray);
+				}
+			}
+			if (i == 5){
+				greenCountries.push([localCountryArray[randomNum]]);
+				localCountryArray.splice(randomNum,1);
+				if (localCountryArray.length == 1){
+					greenCountries.push(localCountryArray);
+				}
+			}
+		}
+		alert(randomNum);
+	}
+	alert(blackCountries);
+	alert(whiteCountries);
+	alert(blackCountries.length);
+	alert(whiteCountries.length);
 }
 
 function hideReinforcementsOptions(){
