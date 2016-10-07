@@ -562,14 +562,6 @@ function assignCountries(numberOfPlayers, localCountryArray){
 		}
 		alert(randomNum);
 	}
-	alert(blackCountries);
-	alert(whiteCountries);
-	alert(blueCountries);
-	alert(redCountries);
-	alert(blackCountries.length);
-	alert(whiteCountries.length);
-	alert(blueCountries.length);
-	alert(redCountries.length);
 }
 
 function hideReinforcementsOptions(){
