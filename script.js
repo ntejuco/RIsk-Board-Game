@@ -528,10 +528,10 @@ function setMapAttributes(){
 }
 
 function assignCountries(numberOfPlayers, localCountryArray){
-	countriesPerPlayer = Math.round((42 / numberOfPlayers));
+	countriesPerPlayer = Math.floor((42 / numberOfPlayers));
 	leftOverCountries = 42 % numberOfPlayers;
 	remainingCountries = 42;
-	for (i = 0; i <= numberOfPlayers; i++){
+	for (i = 0; i < numberOfPlayers; i++){
 		for (j = 0; j < countriesPerPlayer; j++){
 			randomNum = Math.floor(Math.random() * remainingCountries);
 			remainingCountries--;
@@ -542,45 +542,34 @@ function assignCountries(numberOfPlayers, localCountryArray){
 			if (i == 1){
 				whiteCountries.push([localCountryArray[randomNum]]);
 				localCountryArray.splice(randomNum,1);
-				if (localCountryArray.length == 2){
-					whiteCountries.push(localCountryArray[1]);
-				}
 			}
 			if (i == 2){
 				blueCountries.push([localCountryArray[randomNum]]);
 				localCountryArray.splice(randomNum,1);
-				if (localCountryArray.length == 1){
-					blueCountries.push(localCountryArray);
-				}
 			}
 			if (i == 3){
 				redCountries.push([localCountryArray[randomNum]]);
 				localCountryArray.splice(randomNum,1);
-				if (localCountryArray.length == 1){
-					redCountries.push(localCountryArray);
-				}
 			}
 			if (i == 4){
 				yellowCountries.push([localCountryArray[randomNum]]);
 				localCountryArray.splice(randomNum,1);
-				if (localCountryArray.length == 1){
-					yellowCountries.push(localCountryArray);
-				}
 			}
 			if (i == 5){
 				greenCountries.push([localCountryArray[randomNum]]);
 				localCountryArray.splice(randomNum,1);
-				if (localCountryArray.length == 1){
-					greenCountries.push(localCountryArray);
-				}
 			}
 		}
 		alert(randomNum);
 	}
 	alert(blackCountries);
 	alert(whiteCountries);
+	alert(blueCountries);
+	alert(redCountries);
 	alert(blackCountries.length);
 	alert(whiteCountries.length);
+	alert(blueCountries.length);
+	alert(redCountries.length);
 }
 
 function hideReinforcementsOptions(){
