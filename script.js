@@ -10,15 +10,17 @@ var blackCountries = [],
 	blueCountries = [],
 	redCountries = [],
 	yellowCountries = [],
-	greenCountries = [];	
+	greenCountries = [];
+
+var playerArray = [blackCountries,whiteCountries,blueCountries,redCountries,yellowCountries,greenCountries];
 		
 $(document).ready(function() {
     setMapAttributes();
 	getNumPlayers = true;
 	errOutput = "";
 	while (getNumPlayers == true){
-		numberOfPlayers = prompt("Please enter the number of players (2-6)" + errOutput, 3);
-		if (numberOfPlayers >= 2 && numberOfPlayers <= 6){
+		numberOfPlayers = prompt("Please enter the number of players (3-6)" + errOutput, 3);
+		if (numberOfPlayers >= 3 && numberOfPlayers <= 6){
 			getNumPlayers = false;
 			setPlayerStats(numberOfPlayers);
 		}
@@ -27,6 +29,7 @@ $(document).ready(function() {
 		}
 	}
 	assignCountries(numberOfPlayers, countryArray);
+	assignTroops(numberOfPlayers);
 	$('.west-australia').click(function() {
         $('.currently-selected-country').text('West Australia');
     });
@@ -582,13 +585,27 @@ function assignCountries(numberOfPlayers, localCountryArray){
 			greenCountries.push(localCountryArray[5]);
 		}
 	}
-	console.log(blackCountries);
-	console.log(whiteCountries);
-	console.log(blueCountries);
-	console.log(redCountries);
-	console.log(yellowCountries);
-	console.log(greenCountries);
-	
+}
+
+function assignTroops(numberOfPlayers){
+	var troopsPerPlayer;
+	if (numberOfPlayers == 3){
+		troopsPerPlayer = 35;
+	}
+	if (numberOfPlayers == 4){
+		troopsPerPlayer = 30;
+	}
+	if (numberOfPlayers == 5){
+		troopsPerPlayer = 25;
+	}
+	if (numberOfPlayers == 6){
+		troopsPerPlayer = 20;
+	} 
+	for (i=0; i < numberOfPlayers; i++){
+		numControlledCountries = playerArray[i].length;
+		troopsPerCountry = Math.floor(troopsPerPlayer)
+
+	}
 }
 
 function hideReinforcementsOptions(){
