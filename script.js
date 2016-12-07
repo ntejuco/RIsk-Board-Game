@@ -539,28 +539,11 @@ function assignCountries(numberOfPlayers, localCountryArray){
 		for (j = 0; j < countriesPerPlayer; j++){
 			randomNum = Math.floor(Math.random() * remainingCountries);
 			remainingCountries--;
-			playerArray[i].push([localCountryArray[randomNum]][0]);
+			playerArray[i].push([[localCountryArray[randomNum]][0],0]);
 		}
 	}
 	for (i = 0; i < remainingCountries; i++){
-		if (i==0){
-			blackCountries.push(localCountryArray[0]);
-		}
-		if (i==1){
-			whiteCountries.push(localCountryArray[1]);
-		}
-		if (i==2){
-			blueCountries.push(localCountryArray[2]);
-		}
-		if (i==3){
-			redCountries.push(localCountryArray[3]);
-		}
-		if (i==4){
-			yellowCountries.push(localCountryArray[4]);
-		}
-		if (i==5){
-			greenCountries.push(localCountryArray[5]);
-		}
+		playerArray[i].push([[localCountryArray[randomNum]][0],0]);
 	}
 }
 
@@ -583,13 +566,12 @@ function assignTroops(numberOfPlayers){
 		troopsPerCountry = Math.floor(troopsPerPlayer / numControlledCountries);
 		leftOverTroops = troopsPerPlayer % numControlledCountries;
 		for (j=0; j < leftOverTroops; j++){
-			playerArray[i][j] += 1;
+			playerArray[i][j][1] += 1;
 		}
 		for (j=0; j < numControlledCountries; j++){
-			playerArray[i][j] += troopsPerCountry;
+			playerArray[i][j][1] += troopsPerCountry;
 		}
 	}
-	console.log(playerArray);
 }
 
 function hideReinforcementsOptions(){
