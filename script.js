@@ -545,6 +545,14 @@ function assignCountries(numberOfPlayers, localCountryArray){
 	for (i = 0; i < remainingCountries; i++){
 		playerArray[i].push([[localCountryArray[randomNum]][0],0]);
 	}
+	for (i=0; i < 5; i++){
+		if (playerArray[i].length > 0){
+			for (j=0; j < playerArray.length; j++){
+				currentCountry = document.getElementById(playerArray[i][j][0] + "-troops");
+				currentCountry.style.color=playerArray[i];
+			}
+		}
+	}
 }
 
 function assignTroops(numberOfPlayers){
@@ -552,13 +560,13 @@ function assignTroops(numberOfPlayers){
 	if (numberOfPlayers == 3){
 		troopsPerPlayer = 35;
 	}
-	if (numberOfPlayers == 4){
+	else if (numberOfPlayers == 4){
 		troopsPerPlayer = 30;
 	}
-	if (numberOfPlayers == 5){
+	else if (numberOfPlayers == 5){
 		troopsPerPlayer = 25;
 	}
-	if (numberOfPlayers == 6){
+	else if (numberOfPlayers == 6){
 		troopsPerPlayer = 20;
 	} 
 	for (i=0; i < numberOfPlayers; i++){
