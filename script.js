@@ -30,6 +30,7 @@ $(document).ready(function() {
 	}
 	assignCountries(numberOfPlayers, countryArray);
 	assignTroops(numberOfPlayers);
+	displayTroops(numberOfPlayers);
 	$('.west-australia').click(function() {
         $('.currently-selected-country').text('West Australia');
     });
@@ -542,7 +543,6 @@ function assignCountries(numberOfPlayers, localCountryArray){
 			playerArray[i].push([[localCountryArray[randomNum]][0],0]);
 			localCountryArray.splice(randomNum,1);
 		}
-		console.log(localCountryArray);
 	}
 	for (i = 0; i < remainingCountries; i++){
 		playerArray[i].push([[localCountryArray[randomNum]][0],0]);
@@ -570,10 +570,6 @@ function assignCountries(numberOfPlayers, localCountryArray){
 			}
 		}
 	}
-	console.log(blackCountries);
-	console.log(whiteCountries);
-	console.log(blueCountries);
-	console.log(redCountries);
 }
 
 function assignTroops(numberOfPlayers){
@@ -599,6 +595,15 @@ function assignTroops(numberOfPlayers){
 		}
 		for (j=0; j < numControlledCountries; j++){
 			playerArray[i][j][1] += troopsPerCountry;
+		}
+	}
+}
+
+function displayTroops(numberOfPlayers){
+	for (i=0; i < numberOfPlayers; i++){
+		for (j=0; j < playerArray[i].length; j++){
+			currentCountry = playerArray[i][j][0];
+			document.getElementById(currentCountry + "-troops").innerHTML = playerArray[i][j][1];
 		}
 	}
 }
