@@ -540,19 +540,40 @@ function assignCountries(numberOfPlayers, localCountryArray){
 			randomNum = Math.floor(Math.random() * remainingCountries);
 			remainingCountries--;
 			playerArray[i].push([[localCountryArray[randomNum]][0],0]);
+			localCountryArray.splice(randomNum,1);
 		}
+		console.log(localCountryArray);
 	}
 	for (i = 0; i < remainingCountries; i++){
 		playerArray[i].push([[localCountryArray[randomNum]][0],0]);
 	}
-	for (i=0; i < 5; i++){
-		if (playerArray[i].length > 0){
-			for (j=0; j < playerArray.length; j++){
-				currentCountry = document.getElementById(playerArray[i][j][0] + "-troops");
-				currentCountry.style.color=playerArray[i];
+	for (i=0; i < numberOfPlayers; i++){
+		for (j=0; j < playerArray[i].length; j++){
+			currentCountry = document.getElementById(playerArray[i][j][0] + "-troops");
+			if (i==0){
+				currentCountry.style.color="black";
+			}
+			if (i==1){
+				currentCountry.style.color="white";
+			}
+			if (i==2){
+				currentCountry.style.color="blue";
+			}
+			if (i==3){
+				currentCountry.style.color="red";
+			}
+			if (i==4){
+				currentCountry.style.color="yellow";
+			}
+			if (i==5){
+				currentCountry.style.color="green";
 			}
 		}
 	}
+	console.log(blackCountries);
+	console.log(whiteCountries);
+	console.log(blueCountries);
+	console.log(redCountries);
 }
 
 function assignTroops(numberOfPlayers){
