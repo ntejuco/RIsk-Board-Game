@@ -180,6 +180,7 @@ $(document).ready(function() {
 			showReinforcementsOptions();
 		}
 	});
+	$('')
 });
 
 $(window).resize(function () {
@@ -612,12 +613,14 @@ function hideReinforcementsOptions(){
 	$('#reinforcement-dropdown').toggleClass("hidden");
 	$('#action-on-country-indicator-2').toggleClass("hidden");
 	$('#reinforcements-remaining-text').toggleClass("hidden"); 
+	$('#add-reinforcements-button').toggleClass("hidden");
 }
 
 function hideAttackOptions(){
 	$('#attack-dropdown-country').toggleClass("hidden");
 	$('#attack-dropdown-number').toggleClass("hidden");
 	$('#attack-option-part-2').toggleClass("hidden");
+	$('#attack-button').toggleClass("hidden");
 }
 
 function hideFortificationOptions(){
@@ -630,12 +633,14 @@ function showReinforcementsOptions(){
 	$('#reinforcement-dropdown').toggleClass("hidden");
 	$('#action-on-country-indicator-2').toggleClass("hidden");
 	$('#reinforcements-remaining-text').toggleClass("hidden");
+	$('#add-reinforcements-button').toggleClass("hidden");
 }
 
 function showAttackOptions(){
 	$('#attack-dropdown-country').toggleClass("hidden");
 	$('#attack-dropdown-number').toggleClass("hidden");
 	$('#attack-option-part-2').toggleClass("hidden");
+	$('#attack-button').toggleClass("hidden");
 }
 
 function showFortificationOptions(){

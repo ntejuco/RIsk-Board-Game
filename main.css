@@ -51,3 +51,7 @@ body{
 .player-headings{
 	text-decoration:underline;
 }
+
+.action-button{
+	margin-left:10px;
+}
