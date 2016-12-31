@@ -13,9 +13,15 @@ var blackCountries = [],
 	greenCountries = [];
 
 var playerArray = [blackCountries,whiteCountries,blueCountries,redCountries,yellowCountries,greenCountries];
-		
+	
 $(document).ready(function() {
-    setMapAttributes();
+	var img = document.getElementById('game-board-image');
+	$(".game-board").on('load',function(){
+		setMapAttributes();
+		assignCountries(numberOfPlayers, countryArray);
+		assignTroops(numberOfPlayers);
+		displayTroops(numberOfPlayers);
+	});
 	getNumPlayers = true;
 	errOutput = "";
 	while (getNumPlayers == true){
@@ -28,9 +34,6 @@ $(document).ready(function() {
 			errOutput = "\nPlease enter a number";
 		}
 	}
-	assignCountries(numberOfPlayers, countryArray);
-	assignTroops(numberOfPlayers);
-	displayTroops(numberOfPlayers);
 	$('.west-australia').click(function() {
         $('.currently-selected-country').text('West Australia');
     });
