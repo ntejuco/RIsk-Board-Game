@@ -16,11 +16,12 @@ var playerArray = [blackCountries,whiteCountries,blueCountries,redCountries,yell
 	
 $(document).ready(function() {
 	var img = document.getElementById('game-board-image');
-	$(".game-board").on('load',function(){
+	$("#game-board-image").on('load',function(){
 		setMapAttributes();
 		assignCountries(numberOfPlayers, countryArray);
 		assignTroops(numberOfPlayers);
 		displayTroops(numberOfPlayers);
+		updatePlayerStats(numberOfPlayers);
 	});
 	getNumPlayers = true;
 	errOutput = "";
@@ -183,7 +184,6 @@ $(document).ready(function() {
 			showReinforcementsOptions();
 		}
 	});
-	$('')
 });
 
 $(window).resize(function () {
@@ -664,5 +664,41 @@ function setPlayerStats(numberOfPlayers){
 	}
 	if (numberOfPlayers == 6){
 		$("#green-player-elements").toggleClass("hidden");
+	}
+}
+
+function updatePlayerStats(numberOfPlayers){
+	for (i=0; i < numberOfPlayers; i++){
+		currentPlayerCountries = playerArray[i].length;
+		currentPlayerTroops = 0;
+		for (j=0; j < currentPlayerCountries; j++){
+			currentPlayerTroops += playerArray[i][j][1];
+		}
+		if (i==0){
+			statsCountryID = document.getElementById("black-countries");
+			statsTroopsID = document.getElementById("black-troops");
+		}
+		if (i==1){
+			statsCountryID = document.getElementById("white-countries");
+			statsTroopsID = document.getElementById("white-troops");
+		}
+		if (i==2){
+			statsCountryID = document.getElementById("blue-countries");
+			statsTroopsID = document.getElementById("blue-troops");
+		}
+		if (i==3){
+			statsCountryID = document.getElementById("red-countries");
+			statsTroopsID = document.getElementById("red-troops");
+		}
+		if (i==4){
+			statsCountryID = document.getElementById("yellow-countries");
+			statsTroopsID = document.getElementById("yellow-troops");
+		}
+		if (i==5){
+			statsCountryID = document.getElementById("green-countries");
+			statsTroopsID = document.getElementById("green-troops");
+		}
+		statsCountryID.innerHTML = currentPlayerCountries;
+		statsTroopsID.innerHTML = currentPlayerTroops;
 	}
 }

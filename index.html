@@ -14,14 +14,9 @@
 		crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="main.css" type="text/css"/>
 		<script type="text/javascript" src="script.js"></script>
-		<script>
-     $(document).ready(function(){
-        $('.dropdown-toggle').dropdown()
-    });
-</script>
 	</head>
 	<body>
-	<div class="container-fluid">
+		<div class="container-fluid">
 			<nav class="navbar navbar-default">
 				<div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
@@ -31,34 +26,44 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
-					    </button>
+						</button>
 					</div>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li id="reinforcements" class="reinforcements active"><a><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span class="badge">+</span> Reinforcements<span class="sr-only">(current)</span></a></li>
-						<li id="attack" class="attack"><a><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Attack</a></li>
-						<li id="fortification" class="fortification"><a><span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span> Fortification</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Reset</a></li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li id="reinforcements" class="reinforcements active">
+								<a>
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									<span class="badge">+</span> Reinforcements
+									<span class="sr-only">(current)</span>
+								</a>
+							</li>
+							<li id="attack" class="attack">
+								<a><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Attack</a>
+							</li>
+							<li id="fortification" class="fortification">
+								<a><span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span> Fortification</a>
+							</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#">Reset</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
 			</nav>
-			
+				
 			<div class="col-lg-2 col-md-2">
 				<div class="panel panel-default">
 					<div class="panel-body">
-					<p class="info-panel-header">Your cards:</p>
-					<p>Card Set Bonus: <span id="bonus_number">4</span></p>
-					<br>
-					<p><a href="#"><i>Show Hidden Cards</i></a></p>
+						<p class="info-panel-header">Your cards:</p>
+						<p>Card Set Bonus: <span id="bonus_number">4</span></p>
+						<br>
+						<p><a href="#"><i>Show Hidden Cards</i></a></p>
 					</div>
 				</div>
 			</div>
-			
+				
 			<div class="col-lg-8 col-md-8 col-sm-12 container">
 				<div class="image">
 					<image id="game-board-image" class="game-board" src="Risk Board.png" USEMAP="#board-bounderies"> 
@@ -107,7 +112,7 @@
 				</div>
 			</div>
 			<div class="clearfix visible-sm-block"></div>
-			
+				
 			<map name="board-bounderies">
 				<area class="west-australia" shape="circle">
 				<area class="east-australia" shape="circle">
@@ -152,51 +157,51 @@
 				<area class="northwest-territory" shape="circle">
 				<area class="alaska" shape="circle">				
 			</map>
-			
+				
 			<div class="col-lg-2 col-md-2">
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<p class="info-panel-header">Player Statistics:</p>
 						<div id="black-player-elements" class="player-stats-detail">
 							<p class="player-headings">Black</p>
-							<p>Counties Controlled: <span id="black-countries">0</span></p>
+							<p>Countries Controlled: <span id="black-countries">0</span></p>
 							<p>Continents Controlled: <span id="black-continents">0</span></p>
 							<p>Total Troops: <span id="black-troops">0</span></p>
 						</div>
 						<div id="white-player-elements" class="player-stats-detail">
 							<p class="player-headings">White</p>
-							<p>Counties Controlled: <span id="white-countries">0</span></p>
+							<p>Countries Controlled: <span id="white-countries">0</span></p>
 							<p>Continents Controlled: <span id="white-continents">0</span></p>
 							<p>Total Troops: <span id="white-troops">0</span></p>
 						</div>
 						<div id="blue-player-elements" class="player-stats-detail hidden">
 							<p class="player-headings">Blue</p>
-							<p>Counties Controlled: <span id="blue-countries">0</span></p>
+							<p>Countries Controlled: <span id="blue-countries">0</span></p>
 							<p>Continents Controlled: <span id="blue-continents">0</span></p>
 							<p>Total Troops: <span id="blue-troops">0</span></p>
 						</div>
 						<div id="red-player-elements" class="player-stats-detail hidden">
 							<p class="player-headings">Red</p>
-							<p>Counties Controlled: <span id="red-countries">0</span></p>
+							<p>Countries Controlled: <span id="red-countries">0</span></p>
 							<p>Continents Controlled: <span id="red-continents">0</span></p>
 							<p>Total Troops: <span id="red-troops">0</span></p>
 						</div>
 						<div id="yellow-player-elements" class="player-stats-detail hidden">
 							<p class="player-headings">Yellow</p>
-							<p>Counties Controlled: <span id="yellow-countries">0</span></p>
+							<p>Countries Controlled: <span id="yellow-countries">0</span></p>
 							<p>Continents Controlled: <span id="yellow-continents">0</span></p>
 							<p>Total Troops: <span id="yelow-troops">0</span></p>
 						</div>
 						<div id="green-player-elements" class="player-stats-detail hidden">
 							<p class="player-headings">Green</p>
-							<p>Counties Controlled: <span id="green-countries">0</span></p>
+							<p>Countries Controlled: <span id="green-countries">0</span></p>
 							<p>Continents Controlled: <span id="green-continents">0</span></p>
 							<p>Total Troops: <span id="green-troops">0</span></p>
 						</div>
 					</div>
 				</div>
 			</div>
-			
+				
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
 					<div class="panel-body">
@@ -289,6 +294,6 @@
 					</div>
 				</div>
 			</div>
-	</div>	
+		</div>	
 	</body>
 </html>
