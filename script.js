@@ -35,6 +35,10 @@ $(document).ready(function() {
 			errOutput = "\nPlease enter a number";
 		}
 	}
+	$('#add-reinforcements-button').click(function(){
+		remainingTroops = document.getElementById('reinforcements-remaining-number').innerHTML;
+		troopsToAdd = $('#reinforcements-dropdown option:selected').text();
+	});	
 	$('.west-australia').click(function() {
         $('.currently-selected-country').text('West Australia');
     });

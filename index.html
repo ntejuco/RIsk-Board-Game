@@ -207,24 +207,21 @@
 					<div class="panel-body">
 						<div class="col-lg-6 col-md-6">
 							<span id="action-on-country-indicator">Add </span>
-							<div id="reinforcement-dropdown" class="dropdown lower-ui inline">
-								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-									0
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" aria-labelledby="Reinforce">
-									<li><a href="#">0</a></li>
-									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">5</a></li>
-								</ul>
+							<div id="reinforcement-dropdown" class="dropdown lower-ui inline">	
+								<select id="reinforcements-dropdown">
+									<option>0</option>
+									<option>1</option>
+									<option>2</option>									
+									<option>3</option>									
+									<option>4</option>									
+									<option>5</option>
+								</select>
+
 							</div>
 							
 							<span id="action-on-country-indicator-2">Reinforcements to </span><span class="currently-selected-country"><i>Select Country</i></span>
 							<button type="button" id="add-reinforcements-button" class="btn btn-primary btn-sm action-button">Add</button>
-							<span id='reinforcements-remaining-text'><br>Reinforcements Remaining: <span id="reinforcements-remaining-number">0</span></span>
+							<span id='reinforcements-remaining-text'><br>Reinforcements Remaining: <span id="reinforcements-remaining-number">10</span></span>
 							<span id="attack-option-part-2" class="hidden"><span>to</span>
 							<div id="attack-dropdown-country" class="dropdown hidden lower-ui inline">
 								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
