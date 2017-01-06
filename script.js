@@ -36,8 +36,30 @@ $(document).ready(function() {
 		}
 	}
 	$('#add-reinforcements-button').click(function(){
-		remainingTroops = document.getElementById('reinforcements-remaining-number').innerHTML;
-		troopsToAdd = $('#reinforcements-dropdown option:selected').text();
+		remainingTroops = parseInt(document.getElementById('reinforcements-remaining-number').innerHTML);
+		troopsToAdd = parseInt($('#reinforcements-dropdown option:selected').text());
+		selectedCountry = $('#selected-country').text();
+		if ((troopsToAdd <= remainingTroops) && (selectedCountry != "Select Country")){
+			selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
+			var i;
+			var j;
+			found = false;
+			for (i=0; i < numberOfPlayers; i++){
+				for (j=0; j < playerArray[i].length; j++){
+					if (playerArray[i][j][0] == selectedCountry){
+						found = true;
+						break;
+					}
+				}
+				if (found == true){
+					break;
+				}
+			}
+			playerArray[i][j][1] += troopsToAdd;
+			displayTroops(numberOfPlayers);
+			updatePlayerStats(numberOfPlayers);
+			document.getElementById('reinforcements-remaining-number').innerHTML = remainingTroops - troopsToAdd;
+		}
 	});	
 	$('.west-australia').click(function() {
         $('.currently-selected-country').text('West Australia');
