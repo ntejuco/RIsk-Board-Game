@@ -31,12 +31,14 @@ $(document).ready(function() {
 		numberOfPlayers = prompt("Please enter the number of players (3-6)" + errOutput, 3);
 		if (numberOfPlayers >= 3 && numberOfPlayers <= 6){
 			getNumPlayers = false;
+			numberOfPlayers = parseInt(numberOfPlayers);
 			setPlayerStats(numberOfPlayers);
 		}
 		else{
 			errOutput = "\nPlease enter a number";
 		}
 	}
+	$('#black-player-elements .player-headings').toggleClass('bold');
 	$('#add-reinforcements-button').click(function(){
 		remainingTroops = parseInt(document.getElementById('reinforcements-remaining-number').innerHTML);
 		troopsToAdd = parseInt($('#reinforcements-dropdown option:selected').text());
@@ -221,8 +223,34 @@ $(window).resize(function () {
 });
 
 function nextTurn(numberOfPlayers){
+	previousTurn = playerTurn;
 	playerTurn += 1;
 	playerTurn = playerTurn % numberOfPlayers;
+	toggleBold(previousTurn);
+	toggleBold(playerTurn);
+}
+
+function toggleBold(playerNumber){
+	switch(playerNumber){
+		case(0):
+			$('#black-player-elements .player-headings').toggleClass('bold');
+			break;
+		case(1):
+			$('#white-player-elements .player-headings').toggleClass('bold');
+			break;
+		case(2):
+			$('#blue-player-elements .player-headings').toggleClass('bold');
+			break;
+		case(3):
+			$('#red-player-elements .player-headings').toggleClass('bold');
+			break;
+		case(4):
+			$('#yellow-player-elements .player-headings').toggleClass('bold');
+			break;
+		case(5):
+			$('#green-player-elements .player-headings').toggleClass('bold');
+			break;
+		}
 }
 
 function setMapAttributes(){
@@ -589,23 +617,25 @@ function assignCountries(numberOfPlayers, localCountryArray){
 	for (i=0; i < numberOfPlayers; i++){
 		for (j=0; j < playerArray[i].length; j++){
 			currentCountry = document.getElementById(playerArray[i][j][0] + "-troops");
-			if (i==0){
-				currentCountry.style.color="black";
-			}
-			if (i==1){
-				currentCountry.style.color="white";
-			}
-			if (i==2){
-				currentCountry.style.color="blue";
-			}
-			if (i==3){
-				currentCountry.style.color="red";
-			}
-			if (i==4){
-				currentCountry.style.color="yellow";
-			}
-			if (i==5){
-				currentCountry.style.color="green";
+			switch(i){
+				case 0:
+					currentCountry.style.color="black";
+					break;
+				case 1:
+					currentCountry.style.color="white";
+					break;
+				case 2:
+					currentCountry.style.color="blue";
+					break;
+				case 3:
+					currentCountry.style.color="red";
+					break;
+				case 4:
+					currentCountry.style.color="yellow";
+					break;
+				case 5:
+					currentCountry.style.color="green";
+					break;
 			}
 		}
 	}
@@ -613,18 +643,25 @@ function assignCountries(numberOfPlayers, localCountryArray){
 
 function assignTroops(numberOfPlayers){
 	var troopsPerPlayer;
-	if (numberOfPlayers == 3){
-		troopsPerPlayer = 35;
+	console.log(numberOfPlayers);
+	console.log(typeof numberOfPlayers);
+	switch(numberOfPlayers){
+		case 3:
+			troopsPerPlayer = 35;
+			break;
+		case 4:
+			troopsPerPlayer = 30;
+			break;
+		case 5:
+			troopsPerPlayer = 25;
+			break;
+		case 6:
+			troopsPerPlayer = 20;
+			break;
+		default:
+			console.log("t");
+			break;
 	}
-	else if (numberOfPlayers == 4){
-		troopsPerPlayer = 30;
-	}
-	else if (numberOfPlayers == 5){
-		troopsPerPlayer = 25;
-	}
-	else if (numberOfPlayers == 6){
-		troopsPerPlayer = 20;
-	} 
 	for (i=0; i < numberOfPlayers; i++){
 		numControlledCountries = playerArray[i].length;
 		troopsPerCountry = Math.floor(troopsPerPlayer / numControlledCountries);
