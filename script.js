@@ -612,6 +612,7 @@ function assignCountries(numberOfPlayers, localCountryArray){
 		}
 	}
 	for (i = 0; i < remainingCountries; i++){
+		randomNum = Math.floor(Math.random() * remainingCountries)
 		playerArray[i].push([[localCountryArray[randomNum]][0],0]);
 	}
 	for (i=0; i < numberOfPlayers; i++){
@@ -643,8 +644,6 @@ function assignCountries(numberOfPlayers, localCountryArray){
 
 function assignTroops(numberOfPlayers){
 	var troopsPerPlayer;
-	console.log(numberOfPlayers);
-	console.log(typeof numberOfPlayers);
 	switch(numberOfPlayers){
 		case 3:
 			troopsPerPlayer = 35;
