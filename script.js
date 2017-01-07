@@ -13,6 +13,8 @@ var blackCountries = [],
 	greenCountries = [];
 
 var playerArray = [blackCountries,whiteCountries,blueCountries,redCountries,yellowCountries,greenCountries];
+
+var playerTurn = 0;
 	
 $(document).ready(function() {
 	var img = document.getElementById('game-board-image');
@@ -208,6 +210,8 @@ $(document).ready(function() {
 			$('#action-on-country-indicator').text("Add");
 			hideFortificationOptions();
 			showReinforcementsOptions();
+			document.getElementById('reinforcements-remaining-number').innerHTML = calculateReinforcements();
+			nextTurn(numberOfPlayers);
 		}
 	});
 });
@@ -215,6 +219,11 @@ $(document).ready(function() {
 $(window).resize(function () {
 	setMapAttributes();
 });
+
+function nextTurn(numberOfPlayers){
+	playerTurn += 1;
+	playerTurn = playerTurn % numberOfPlayers;
+}
 
 function setMapAttributes(){
 	var xCoord, yCoord,
@@ -700,31 +709,37 @@ function updatePlayerStats(numberOfPlayers){
 		for (j=0; j < currentPlayerCountries; j++){
 			currentPlayerTroops += playerArray[i][j][1];
 		}
-		if (i==0){
-			statsCountryID = document.getElementById("black-countries");
-			statsTroopsID = document.getElementById("black-troops");
-		}
-		if (i==1){
-			statsCountryID = document.getElementById("white-countries");
-			statsTroopsID = document.getElementById("white-troops");
-		}
-		if (i==2){
-			statsCountryID = document.getElementById("blue-countries");
-			statsTroopsID = document.getElementById("blue-troops");
-		}
-		if (i==3){
-			statsCountryID = document.getElementById("red-countries");
-			statsTroopsID = document.getElementById("red-troops");
-		}
-		if (i==4){
-			statsCountryID = document.getElementById("yellow-countries");
-			statsTroopsID = document.getElementById("yellow-troops");
-		}
-		if (i==5){
-			statsCountryID = document.getElementById("green-countries");
-			statsTroopsID = document.getElementById("green-troops");
+		switch(i){
+			case 0:
+				statsCountryID = document.getElementById("black-countries");
+				statsTroopsID = document.getElementById("black-troops");
+				break;
+			case 1:
+				statsCountryID = document.getElementById("white-countries");
+				statsTroopsID = document.getElementById("white-troops");
+				break;
+			case 2:
+				statsCountryID = document.getElementById("blue-countries");
+				statsTroopsID = document.getElementById("blue-troops");
+				break;
+			case 3:
+				statsCountryID = document.getElementById("red-countries");
+				statsTroopsID = document.getElementById("red-troops");
+				break;
+			case 4:
+				statsCountryID = document.getElementById("yellow-countries");
+				statsTroopsID = document.getElementById("yellow-troops");
+				break;
+			case 5:
+				statsCountryID = document.getElementById("green-countries");
+				statsTroopsID = document.getElementById("green-troops");
+				break;
 		}
 		statsCountryID.innerHTML = currentPlayerCountries;
 		statsTroopsID.innerHTML = currentPlayerTroops;
 	}
+}
+
+function calculateReinforcements(){
+	return 10;
 }
