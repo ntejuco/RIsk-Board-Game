@@ -4,6 +4,23 @@ var countryArray = ["west-australia","east-australia","new-guinea","indonesia","
 					"ukraine","southern-europe","northern-europe","scandinavia","western-europe","great-britain","iceland",
 					"central-america","eastern-united-states","quebec","greenland","western-united-states","ontario",
 					"alberta","northwest-territory","alaska"];
+
+var countryGraph = [
+					["east-australia", "new-guinea"],
+					["west-australia", "new-guinea", "indonesia"],
+					["west-australia", "east-australia", "indonesia"],
+					["east-australia", "new-guinea"],
+					["indonesia", "china", "india"],
+					["sian", "china", "afghanistan", "middle-east"],
+					["sian", "mongolia", "siberia", "ural", "afghanistan", "india"],
+					["japan", "kamchatka", "irkutsk", "siberia", "china"],
+					["mongolia", "kamchatka"],
+					["mongolia", "kamchatka", "yakutsk", "siberia"],
+					["mongolia", "japan", "alaska", "yakutsk", "irkutsk"],
+					["irkutsk", "kamchatka", "siberia"],
+					["india", "afghanistan", "ukraine", "southern-europe", "egypt", "east-africa"],
+					[]
+					]
 					
 var blackCountries = [],
 	whiteCountries = [],
