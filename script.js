@@ -19,7 +19,27 @@ var countryGraph = [
 					["mongolia", "japan", "alaska", "yakutsk", "irkutsk"],
 					["irkutsk", "kamchatka", "siberia"],
 					["india", "afghanistan", "ukraine", "southern-europe", "egypt", "east-africa"],
-					[]
+					["india", "china", "ural", "ukraine", "middle-east"],
+					["afghanistan", "china", "siberia", "ukraine"],
+					["china", "mongolia", "irkutsk", "yakutsk", "ural"],
+					["madagascar", "east-africa", "congo"], //TOP CLOCKWISE FROM NOW
+					["east-africa", "south-africa"],
+					["east-africa", "south-africa", "north-africa"],
+					["middle-east", "madagascar", "south-africa", "congo", "north-africa", "egypt"],
+					["western-europe", "southern-europe", "egypt", "east-africa", "congo", "brazil"],
+					["middle-east", "east-africa", "north-africa", "southern-europe"],
+					["peru", "brazil"],
+					["venizuela", "north-africa", "argentina", "peru"],
+					["venizuela", "brazil", "argentina"],
+					["central-america", "brazil", "peru"],
+					
+					["ural", "afghanistan", "middle-east", "southern-europe", "northern-europe", "scandinavia"],
+					["northern-europe", "ukraine", "middle-east", "egypt", "north-africa", "western-europe"],
+					["scandinavia", "ukraine", "southern-europe", "western-europe", "great-britain"],
+					["ukraine", "northern-europe", "great-britain", "iceland"],
+					["great-britain", "northern-europe", "southern-europe", "north-africa"],
+					["iceland", "scandinavia", "northern-europe", "western-europe"],
+					["greenland", "scandinavia", "great-britain"]
 					]
 					
 var blackCountries = [],
