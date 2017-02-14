@@ -10,6 +10,7 @@ var countryGraph = [
 					["west-australia", "new-guinea", "indonesia"],
 					["west-australia", "east-australia", "indonesia"],
 					["east-australia", "new-guinea"],
+					
 					["indonesia", "china", "india"],
 					["sian", "china", "afghanistan", "middle-east"],
 					["sian", "mongolia", "siberia", "ural", "afghanistan", "india"],
@@ -22,12 +23,14 @@ var countryGraph = [
 					["india", "china", "ural", "ukraine", "middle-east"],
 					["afghanistan", "china", "siberia", "ukraine"],
 					["china", "mongolia", "irkutsk", "yakutsk", "ural"],
+					
 					["madagascar", "east-africa", "congo"], //TOP CLOCKWISE FROM NOW
 					["east-africa", "south-africa"],
 					["east-africa", "south-africa", "north-africa"],
 					["middle-east", "madagascar", "south-africa", "congo", "north-africa", "egypt"],
 					["western-europe", "southern-europe", "egypt", "east-africa", "congo", "brazil"],
 					["middle-east", "east-africa", "north-africa", "southern-europe"],
+					
 					["peru", "brazil"],
 					["venizuela", "north-africa", "argentina", "peru"],
 					["venizuela", "brazil", "argentina"],
@@ -39,7 +42,17 @@ var countryGraph = [
 					["ukraine", "northern-europe", "great-britain", "iceland"],
 					["great-britain", "northern-europe", "southern-europe", "north-africa"],
 					["iceland", "scandinavia", "northern-europe", "western-europe"],
-					["greenland", "scandinavia", "great-britain"]
+					["greenland", "scandinavia", "great-britain"],
+					
+					["western-united-states", "eastern-united-states", "venizuela"],
+					["ontario", "quebec", "central-america", "western-united-states"],
+					["greenland", "eastern-united-states", "ontario"],
+					["northwest-territory", "iceland", "quebec", "ontario"],
+					["alberta", "ontario", "eastern-united-states", "central-america"],
+					["greenland", "quebec", "eastern-united-states", "western-united-states", "alberta", "northwest-territory"],
+					["northwest-territory", "ontario", "western-united-states", "alaska"],
+					["greenland", "ontario", "alberta", "alaska"],
+					["northwest-territory", "alberta", "kamchatka"]
 					]
 					
 var blackCountries = [],
