@@ -95,8 +95,7 @@ $(document).ready(function() {
 		selectedCountry = $('#selected-country').text();
 		if ((troopsToAdd <= remainingTroops) && (selectedCountry != "Select Country")){
 			selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
-			var i;
-			var j;
+			var i, j;
 			found = false;
 			for (i=0; i < numberOfPlayers; i++){
 				for (j=0; j < playerArray[i].length; j++){
@@ -115,6 +114,24 @@ $(document).ready(function() {
 			document.getElementById('reinforcements-remaining-number').innerHTML = remainingTroops - troopsToAdd;
 		}
 	});	
+	
+	$('#attack-button').click(function(){
+		attackingCountry = $('#selected-country').text();
+		defendingCountry = String($('#defending-country-dropdown option:selected').text());
+		
+	});
+	
+	$('.image').click(function(){
+		selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
+		if (!reinforcement-dropdown.hasClass('hidden')){
+			
+		} else if (!attack-force-dropdown.hasClass('hidden')){
+			
+		} else if (!fortification-dropdown.hasClass('hidden')){
+			
+		}
+	});
+	
 	$('.west-australia').click(function() {
         $('.currently-selected-country').text('West Australia');
     });
@@ -266,6 +283,7 @@ $(document).ready(function() {
 			nextTurn(numberOfPlayers);
 		}
 	});
+	$('#reset-button').click(function(){location.reload()});
 });
 
 $(window).resize(function () {
