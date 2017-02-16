@@ -91,8 +91,10 @@ $(document).ready(function() {
 	$('#black-player-elements .player-headings').toggleClass('bold');
 	$('#add-reinforcements-button').click(function(){
 		remainingTroops = parseInt(document.getElementById('reinforcements-remaining-number').innerHTML);
-		troopsToAdd = parseInt($('#reinforcements-dropdown option:selected').text());
+		troopsToAdd = parseInt($('#reinforcements-num-dropdown option:selected').text());
 		selectedCountry = $('#selected-country').text();
+		console.log(troopsToAdd);
+		console.log(selectedCountry);
 		if ((troopsToAdd <= remainingTroops) && (selectedCountry != "Select Country")){
 			selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
 			var i, j;
