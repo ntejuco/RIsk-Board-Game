@@ -206,66 +206,77 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="col-lg-6 col-md-6">
-							<span id="action-on-country-indicator">Add </span>
-							<div id="reinforcement-dropdown" class="dropdown lower-ui inline">	
-								<select id="reinforcements-dropdown">
-									<option>0</option>
-									<option>1</option>
-									<option>2</option>									
-									<option>3</option>									
-									<option>4</option>									
-									<option>5</option>
-								</select>
+							<div id="reinforcements-lower-UI">
+								Add
+								<div id="reinforcement-dropdown" class="dropdown lower-ui inline">	
+									<select id="reinforcements-num-dropdown">
+										<option>0</option>
+										<option>1</option>
+										<option>2</option>									
+										<option>3</option>									
+										<option>4</option>									
+										<option>5</option>
+									</select>
+								</div>
+								
+								<span id="action-on-country-indicator-2">Reinforcements to </span><span class="currently-selected-country" id="selected-country"><i>Select Country</i></span>
+								<button type="button" id="add-reinforcements-button" class="btn btn-primary btn-sm action-button">Add</button>
+								<span id='reinforcements-remaining-text'><br>Reinforcements Remaining: <span id="reinforcements-remaining-number">10</span></span>
 							</div>
-							
-							<span id="action-on-country-indicator-2">Reinforcements to </span><span class="currently-selected-country" id="selected-country"><i>Select Country</i></span>
-							<button type="button" id="add-reinforcements-button" class="btn btn-primary btn-sm action-button">Add</button>
-							<span id='reinforcements-remaining-text'><br>Reinforcements Remaining: <span id="reinforcements-remaining-number">10</span></span>
-							<span id="attack-option-part-2" class="hidden"><span>to</span>
-							<div id="defending-countries-dropdown" class="dropdown lower-ui inline">	
-								<select id="defending-country-dropdown">
-									<option>Country 1</option>
-									<option>Country 2</option>
-									<option>Country 3</option>									
-									<option>Country 4</option>									
-									<option>Country 5</option>									
-									<option>Country 6</option>
-								</select>
+							<div id="attack-lower-UI" class="hidden">
+								Attack from
+								<span class="currently-selected-country" id="selected-country"><i>Select Country</i></span>
+								<span id="attack-option-part-2"><span>to</span>
+								<div id="defending-countries-dropdown" class="dropdown lower-ui inline">	
+									<select id="defending-country-dropdown">
+										<option>Country 1</option>
+										<option>Country 2</option>
+										<option>Country 3</option>									
+										<option>Country 4</option>									
+										<option>Country 5</option>									
+										<option>Country 6</option>
+									</select>
+								</div>
+								<span>with</span>
+								<div id="attack-force-dropdown" class="dropdown lower-ui inline">	
+									<select id="attack-force-num-dropdown">
+										<option>0</option>
+										<option>1</option>
+										<option>2</option>									
+										<option>3</option>									
+										<option>4</option>									
+										<option>5</option>
+									</select>
+								</div>
+								<span>troops</span>
+								</span>
+								<button type="button" id="attack-button" class="btn btn-primary btn-sm action-button">Attack</button>
 							</div>
-							<span>with</span>
-							<div id="attack-force-dropdown" class="dropdown lower-ui inline">	
-								<select id="attack-force-dropdown">
-									<option>0</option>
-									<option>1</option>
-									<option>2</option>									
-									<option>3</option>									
-									<option>4</option>									
-									<option>5</option>
-								</select>
+							<div id="fortification-lower-UI" class="hidden">
+								Fortify from 
+								<span class="currently-selected-country" id="selected-country"><i>Select Country</i></span>
+								to
+								<span id="fortification-action-indicator-text">
+								<div id="fortify-country-dropdown" class="dropdown lower-ui inline">	
+									<select id="fortify-country-dropdown">
+										<option>Country 1</option>
+										<option>Country 2</option>
+										<option>Country 3</option>
+									</select>
+								</div>
+								<span>with</span>
+								<div id="fortification-dropdown" class="dropdown lower-ui inline">	
+									<select id="fortify-num-dropdown">
+										<option>0</option>
+										<option>1</option>
+										<option>2</option>									
+										<option>3</option>									
+										<option>4</option>									
+										<option>5</option>
+									</select>
+								</div>
+								</span>
 							</div>
-							<span>troops</span>
-							</span>
-							<span id="fortification-action-indicator-text" class="hidden">
-							<div id="fortify-country-dropdown" class="dropdown lower-ui inline">	
-								<select id="fortify-country-dropdown">
-									<option>Country 1</option>
-									<option>Country 2</option>
-									<option>Country 3</option>
-								</select>
-							</div>
-							<span>with</span>
-							<div id="fortification-dropdown" class="dropdown lower-ui inline">	
-								<select id="fortify-dropdown">
-									<option>0</option>
-									<option>1</option>
-									<option>2</option>									
-									<option>3</option>									
-									<option>4</option>									
-									<option>5</option>
-								</select>
-							</div>
-							</span>
-							<button type="button" id="attack-button" class="btn btn-primary btn-sm action-button hidden">Attack</button>
 						</div>
 						<div clas="col-lg-6 col-md-6">
 							<button type="button" id="next-phase-button" class="btn btn-primary btn-lg">Next Phase</button>
