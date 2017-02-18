@@ -9,7 +9,7 @@ var countryGraph = [
 					["east-australia", "new-guinea"],
 					["west-australia", "new-guinea", "indonesia"],
 					["west-australia", "east-australia", "indonesia"],
-					["east-australia", "new-guinea"],
+					["west-australia", "new-guinea"],
 					
 					["indonesia", "china", "india"],
 					["sian", "china", "afghanistan", "middle-east"],
@@ -93,8 +93,6 @@ $(document).ready(function() {
 		remainingTroops = parseInt(document.getElementById('reinforcements-remaining-number').innerHTML);
 		troopsToAdd = parseInt($('#reinforcements-num-dropdown option:selected').text());
 		selectedCountry = $('#selected-country').text();
-		console.log(troopsToAdd);
-		console.log(selectedCountry);
 		if ((troopsToAdd <= remainingTroops) && (selectedCountry != "Select Country")){
 			selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
 			var i, j;
@@ -124,25 +122,7 @@ $(document).ready(function() {
 	});
 	
 	$('.image').click(function(){
-		selectedCountry = $('#selected-country').text()
-		if (selectedCountry != "Select Country"){
-			selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
-			var i, j;
-				found = false;
-				for (i=0; i < numberOfPlayers; i++){
-					for (j=0; j < playerArray[i].length; j++){
-						if (playerArray[i][j][0] == selectedCountry){
-							found = true;
-							break;
-						}
-					}
-					if (found == true){
-						break;
-					}
-				}
-			activeTroops = playerArray[i][j][1] - 1; //-1 as one troop in country must stay
-			updateDropdowns(activeTroops);
-		}
+		updateLowerUI();
 	});
 	
 	$('.west-australia').click(function() {
@@ -292,6 +272,7 @@ $(document).ready(function() {
 			document.getElementById('reinforcements-remaining-number').innerHTML = calculateReinforcements();
 			nextTurn(numberOfPlayers);
 		}
+	updateDropdowns();
 	});
 	$('#reset-button').click(function(){location.reload()});
 });
@@ -331,28 +312,83 @@ function toggleBold(playerNumber){
 		}
 }
 
+function updateLowerUI(){
+	selectedCountry = $('#selected-country').text()
+	if (selectedCountry != "Select Country"){
+		selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
+		var i, j;
+			found = false;
+			for (i=0; i < numberOfPlayers; i++){
+				for (j=0; j < playerArray[i].length; j++){
+					if (playerArray[i][j][0] == selectedCountry){
+						found = true;
+						break;
+					}
+				}
+				if (found == true){
+					break;
+				}
+			}
+		activeTroops = playerArray[i][j][1] - 1; //-1 as one troop in country must stay
+		updateDropdowns(activeTroops);
+	}
+}
 function updateDropdowns(activeTroops){
-	if (!$('#reinforcements-dropdown').hasClass('hidden')){
+	if (!$('#reinforcements-lower-UI').hasClass('hidden')){
 		$('#reinforcements-num-dropdown').empty();
-		activeTroops = 10;
+		activeTroops = $('#reinforcements-remaining-number').text();
 		for (i=1; i <= activeTroops; i++){
 			var option = $('<option></option>').attr("value", "option value").text(i);
 			$('#reinforcements-num-dropdown').append(option);
 		}		
-	} else if (!$('attack-force-dropdown').hasClass('hidden')){
+	} else if (!$('#attack-lower-UI').hasClass('hidden')){
 		$('#attack-force-num-dropdown').empty();
-		console.log('f');
 		for (i=1; i <= activeTroops; i++){
 			var option = $('<option></option>').attr("value", "option value").text(i);
 			$('#attack-force-num-dropdown').append(option);
-		}		
-	} else if (!$('fortification-action-indicator-text').hasClass('hidden')){
+		}
+		$('#defending-country-dropdown').empty();
+		selectedCountry = $('#selected-country').text();
+		if (selectedCountry != "Select Country"){
+			selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
+			j = findCountryIndex(selectedCountry);
+			for (k=0; k<countryGraph[j].length; k++){
+				neighbour = countryGraph[j][k];
+				neighbour = neighbour.replace(/-+/g, ' ');			
+				neighbour = neighbour.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+				var neighbourCountry = $('<option></option>').attr("value", "option value").text(neighbour);
+				$('#defending-country-dropdown').append(neighbourCountry);
+			}
+		}
+	} else if (!$('#fortification-lower-UI').hasClass('hidden')){
 		$('#fortify-num-dropdown').empty();
 		for (i=1; i <= activeTroops; i++){
 			var option = $('<option></option>').attr("value", "option value").text(i);
 			$('#fortify-num-dropdown').append(option);
-		}		
+		}
+		$('#fortify-country-dropdown').empty();
+		if (selectedCountry != "Select Country"){
+			selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
+			j = findCountryIndex(selectedCountry);
+			for (k=0; k  <countryGraph[j].length; k++){
+				neighbour = countryGraph[j][k];
+				neighbour = neighbour.replace(/-+/g, ' ');			
+				neighbour = neighbour.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+				var neighbourCountry = $('<option></option>').attr("value", "option value").text(neighbour);
+				$('#fortify-country-dropdown').append(neighbourCountry);
+			}
+		}
 	}
+}
+
+function findCountryIndex(country){
+	selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
+		for (i=0; j<countryArray.length; j++){
+			if (countryArray[i] == selectedCountry){
+				break;
+			}
+		}
+	return i;
 }
 
 function setMapAttributes(){
@@ -701,7 +737,8 @@ function setMapAttributes(){
 	})
 }
 
-function assignCountries(numberOfPlayers, localCountryArray){
+function assignCountries(numberOfPlayers){
+	localCountryArray = countryArray.slice();
 	countriesPerPlayer = Math.floor((42 / numberOfPlayers));
 	leftOverCountries = 42 % numberOfPlayers;
 	remainingCountries = 42;
@@ -787,7 +824,6 @@ function displayTroops(numberOfPlayers){
 
 function hideReinforcementsOptions(){
 	$('#reinforcements-lower-UI').toggleClass("hidden");
-	console.log("hideRein");
 	/*$('#reinforcement-dropdown').toggleClass("hidden");
 	$('#action-on-country-indicator-2').toggleClass("hidden");
 	$('#reinforcements-remaining-text').toggleClass("hidden"); 
