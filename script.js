@@ -6,8 +6,8 @@ var countryArray = ["west-australia","east-australia","new-guinea","indonesia","
 					"alberta","northwest-territory","alaska"];
 
 var countryGraph = [
-					["east-australia", "new-guinea"],
-					["west-australia", "new-guinea", "indonesia"],
+					["east-australia", "new-guinea", "indonesia"],
+					["west-australia", "new-guinea"],
 					["west-australia", "east-australia", "indonesia"],
 					["west-australia", "new-guinea"],
 					
@@ -383,7 +383,8 @@ function updateDropdowns(activeTroops){
 
 function findCountryIndex(country){
 	selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
-		for (i=0; j<countryArray.length; j++){
+	var i;
+		for (i=0; j<countryArray.length; i++){
 			if (countryArray[i] == selectedCountry){
 				break;
 			}
@@ -401,16 +402,16 @@ function setMapAttributes(){
 	
 	xCoord = Math.round((1365 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((780 / imageHeight) * gameBoardHeight);
-	$('.west-australia').attr('coords', xCoord + "," + yCoord + "," + mapArea);
-	$('#west-australia-troops').css({
+	$('.east-australia').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#east-australia-troops').css({
 		"left": Math.round(xCoord-(mapArea/2))+"px",
 		"top" : Math.round(yCoord-(mapArea/2))+"px"
 	})
 	
 	xCoord = Math.round((1220 / imageWidth) * gameBoardWidth);
 	yCoord = Math.round((760 / imageHeight) * gameBoardHeight);
-	$('.east-australia').attr('coords', xCoord + "," + yCoord + "," + mapArea);
-	$('#east-australia-troops').css({
+	$('.west-australia').attr('coords', xCoord + "," + yCoord + "," + mapArea);
+	$('#west-australia-troops').css({
 		"left": Math.round(xCoord-(mapArea/2))+"px",
 		"top" : Math.round(yCoord-(mapArea/2))+"px"
 	})
