@@ -118,7 +118,67 @@ $(document).ready(function() {
 	$('#attack-button').click(function(){
 		attackingCountry = $('#selected-country').text();
 		defendingCountry = String($('#defending-country-dropdown option:selected').text());
-		
+		if (attackingCountry != "Select Country" && (defendingCountry != "Select Country")){
+			attackingCountry = attackingCountry.replace(/\s+/g, '-').toLowerCase();
+			defendingCountry = defendingCountry.replace(/\s+/g, '-').toLowerCase();
+		}
+		var i, attackingTroops;
+		foundAttacking = false;
+		for (i=0; i < playerArray[playerTurn].length; i++){
+			if (playerArray[playerTurn][i][0] == attackingCountry){
+				foundAttacking = true;
+				attackingTroops = playerArray[playerTurn][i][1] - 1; //one troop must stay on attacking country
+				break;
+				console.log("found");
+			}
+		}
+		foundDefending = false;
+		var defendingPlayer, j, defendingTroops;
+		for (defendingPlayer=0; defendingPlayer < numberOfPlayers; defendingPlayer++){
+			for (j=0; j < playerArray[defendingPlayer].length; j++){
+				if (playerArray[defendingPlayer][j][0] == defendingCountry){
+					defendingTroops = playerArray[defendingPlayer][j][1]
+					foundDefending = true;
+					break;
+				}
+			}
+			if (foundDefending == true){
+				break;
+			}
+		}
+		if ((foundAttacking == true) && (foundDefending == true)){
+			defendingRoll = [];
+			attackingRoll = [];
+			for (k=0; k < Math.min(defendingTroops,2); k++){
+				defendingRoll.push(Math.floor(Math.random() * 6 + 1));
+			}
+			for (k=0; k < Math.min(attackingTroops,3); k++){
+				attackingRoll.push(Math.floor(Math.random() * 6 + 1));
+			}
+			attackingRoll.sort().reverse();
+			defendingRoll.sort().reverse();
+			for (k=0; k < Math.min(attackingRoll.length, defendingRoll.length); k++){
+				if (attackingRoll[0] > defendingRoll[0]){
+					playerArray[defendingPlayer][j][1] -= 1;
+				}
+				else{
+					playerArray[playerTurn][i][1] -= 1;
+				}
+				attackingRoll.splice(0,1);
+				defendingRoll.splice(0,1);	
+				if (playerArray[defendingPlayer][j][1] <= 0){
+					playerArray[playerTurn].push([playerArray[defendingPlayer][j][0],attackingTroops]);
+					playerArray[playerTurn][i][1] -= attackingTroops;
+					playerArray[defendingPlayer].splice(j,1);
+					conqueredCountry = document.getElementById(playerArray
+										[playerTurn][playerArray[playerTurn].length - 1][0] + "-troops");
+					conqueredCountry.style.color=getCurrentPlayerColor();
+				}
+				displayTroops(numberOfPlayers);
+				updatePlayerStats(numberOfPlayers);
+			}
+		}
+		else alert("Current player must select a country that they control");
 	});
 	
 	$('.image').click(function(){
@@ -387,8 +447,8 @@ function findCountryIndex(country){
 		for (i=0; j<countryArray.length; i++){
 			if (countryArray[i] == selectedCountry){
 				break;
-			}
 		}
+			}
 	return i;
 }
 
@@ -825,48 +885,26 @@ function displayTroops(numberOfPlayers){
 
 function hideReinforcementsOptions(){
 	$('#reinforcements-lower-UI').toggleClass("hidden");
-	/*$('#reinforcement-dropdown').toggleClass("hidden");
-	$('#action-on-country-indicator-2').toggleClass("hidden");
-	$('#reinforcements-remaining-text').toggleClass("hidden"); 
-	$('#add-reinforcements-button').toggleClass("hidden");*/
 }
 
 function hideAttackOptions(){
 	$('#attack-lower-UI').toggleClass("hidden");
-	/*$('#attack-dropdown-country').toggleClass("hidden");
-	$('#attack-dropdown-number').toggleClass("hidden");
-	$('#attack-option-part-2').toggleClass("hidden");
-	$('#attack-button').toggleClass("hidden");*/
 }
 
 function hideFortificationOptions(){
 	$('#fortification-lower-UI').toggleClass("hidden");
-	/*$('#fortification-dropdown-country').toggleClass("hidden");
-	$('#fortification-action-indicator-text').toggleClass("hidden");
-	$('#fortification-dropdown-number').toggleClass("hidden");*/
 }
 
 function showReinforcementsOptions(){
 	$('#reinforcements-lower-UI').toggleClass("hidden");
-	/*$('#reinforcement-dropdown').toggleClass("hidden");
-	$('#action-on-country-indicator-2').toggleClass("hidden");
-	$('#reinforcements-remaining-text').toggleClass("hidden");
-	$('#add-reinforcements-button').toggleClass("hidden");*/
 }
 
 function showAttackOptions(){
 	$('#attack-lower-UI').toggleClass("hidden");
-	/*$('#attack-dropdown-country').toggleClass("hidden");
-	$('#attack-dropdown-number').toggleClass("hidden");
-	$('#attack-option-part-2').toggleClass("hidden");
-	$('#attack-button').toggleClass("hidden");*/
 }
 
 function showFortificationOptions(){
 	$('#fortification-lower-UI').toggleClass("hidden");
-	/*$('#fortification-dropdown-country').toggleClass("hidden");
-	$('#fortification-dropdown-number').toggleClass("hidden");
-	$('#fortification-action-indicator-text').toggleClass("hidden");*/
 }
 
 function setPlayerStats(numberOfPlayers){
@@ -924,4 +962,21 @@ function updatePlayerStats(numberOfPlayers){
 
 function calculateReinforcements(){
 	return 10;
+}
+
+function getCurrentPlayerColor(){
+	switch(playerTurn){
+		case 0:
+			return "black";
+		case 1:
+			return "white";
+		case 2:
+			return "blue";
+		case 3:
+			return "red";
+		case 4:
+			return "yellow";
+		case 5:
+			return "green";
+	}
 }
