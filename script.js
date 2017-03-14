@@ -1,11 +1,11 @@
-var countryArray = ["west-australia","east-australia","new-guinea","indonesia","sian","india","china","mongolia",
+countryArray = ["west-australia","east-australia","new-guinea","indonesia","sian","india","china","mongolia",
 					"japan","irkutsk","kamchatka","yakutsk","middle-east","afghanistan","ural","siberia","south-africa",
 					"madagascar","congo","east-africa","north-africa","egypt","argentina","brazil","peru","venizuela",
 					"ukraine","southern-europe","northern-europe","scandinavia","western-europe","great-britain","iceland",
 					"central-america","eastern-united-states","quebec","greenland","western-united-states","ontario",
 					"alberta","northwest-territory","alaska"];
 
-var countryGraph = [
+countryGraph = [
 					["east-australia", "new-guinea", "indonesia"],
 					["west-australia", "new-guinea"],
 					["west-australia", "east-australia", "indonesia"],
@@ -55,17 +55,17 @@ var countryGraph = [
 					["northwest-territory", "alberta", "kamchatka"]
 					]
 					
-var blackCountries = [],
-	whiteCountries = [],
-	blueCountries = [],
-	redCountries = [],
-	yellowCountries = [],
-	greenCountries = [];
+blackCountries = [];
+whiteCountries = [];
+blueCountries = [];
+redCountries = [];
+yellowCountries = [];
+greenCountries = [];
 
-var playerArray = [blackCountries,whiteCountries,blueCountries,redCountries,yellowCountries,greenCountries];
+playerArray = [blackCountries,whiteCountries,blueCountries,redCountries,yellowCountries,greenCountries];
+var numberOfPlayers;
+playerTurn = 0;
 
-var playerTurn = 0;
-	
 $(document).ready(function() {
 	var img = document.getElementById('game-board-image');
 	$("#game-board-image").on('load',function(){
@@ -75,8 +75,8 @@ $(document).ready(function() {
 		displayTroops(numberOfPlayers);
 		updatePlayerStats(numberOfPlayers);
 	});
-	getNumPlayers = true;
-	errOutput = "";
+	var getNumPlayers = true;
+	var errOutput = "";
 	while (getNumPlayers == true){
 		numberOfPlayers = prompt("Please enter the number of players (3-6)" + errOutput, 3);
 		if (numberOfPlayers >= 3 && numberOfPlayers <= 6){
@@ -90,7 +90,7 @@ $(document).ready(function() {
 	}
 	$('#black-player-elements .player-headings').toggleClass('bold');
 	$('#add-reinforcements-button').click(function(){
-		remainingTroops = parseInt(document.getElementById('reinforcements-remaining-number').innerHTML);
+		var remainingTroops = parseInt(document.getElementById('reinforcements-remaining-number').innerHTML);
 		troopsToAdd = parseInt($('#reinforcements-num-dropdown option:selected').text());
 		selectedCountry = $('#selected-country').text();
 		if ((troopsToAdd <= remainingTroops) && (selectedCountry != "Select Country")){
@@ -112,6 +112,7 @@ $(document).ready(function() {
 			displayTroops(numberOfPlayers);
 			updatePlayerStats(numberOfPlayers);
 			document.getElementById('reinforcements-remaining-number').innerHTML = remainingTroops - troopsToAdd;
+			updateLowerUI();
 		}
 	});	
 	
@@ -146,7 +147,7 @@ $(document).ready(function() {
 				break;
 			}
 		}
-		if ((foundAttacking == true) && (foundDefending == true)){
+		if ((foundAttacking == true) && (foundDefending == true) && (defendingPlayer != playerTurn)){
 			defendingRoll = [];
 			attackingRoll = [];
 			for (k=0; k < Math.min(defendingTroops,2); k++){
@@ -157,6 +158,7 @@ $(document).ready(function() {
 			}
 			attackingRoll.sort().reverse();
 			defendingRoll.sort().reverse();
+			displayRoll(attackingRoll, defendingRoll);
 			for (k=0; k < Math.min(attackingRoll.length, defendingRoll.length); k++){
 				if (attackingRoll[0] > defendingRoll[0]){
 					playerArray[defendingPlayer][j][1] -= 1;
@@ -176,8 +178,12 @@ $(document).ready(function() {
 				}
 				displayTroops(numberOfPlayers);
 				updatePlayerStats(numberOfPlayers);
+				updateLowerUI();
 			}
 		}
+		else if (defendingPlayer == playerTurn){
+					alert("Player must not attack a country they control");
+				}
 		else alert("Current player must select a country that they control");
 	});
 	
@@ -333,6 +339,7 @@ $(document).ready(function() {
 			nextTurn(numberOfPlayers);
 		}
 	updateDropdowns();
+	updateLowerUI();
 	});
 	$('#reset-button').click(function(){location.reload()});
 });
@@ -980,3 +987,13 @@ function getCurrentPlayerColor(){
 			return "green";
 	}
 }
+	
+function displayRoll(attackingRoll, defendingRoll){
+	var attackingRollDisplay = document.getElementById("attackers-roll");
+	var defendingRollDisplay = document.getElementById("defenders-roll");
+	attackingRollDisplay.innerHTML = attackingRoll;
+	defendingRollDisplay.innerHTML = defendingRoll;
+}
+
+
+
