@@ -1,9 +1,7 @@
 #game-board-image{
-   width: 100%;
-}
-
-.image{
 	position: relative;
+	width: 100%;
+	z-index:-1;
 }
 
 .troop-number{

@@ -5,13 +5,8 @@
 		<link rel="shortcut icon" type="image/x-icon" href="Risk Board.png?"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/
-		bootstrap/3.3.6/css/bootstrap.min.css" 
-		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
-		crossorigin="anonymous"/>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
-		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
-		crossorigin="anonymous"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="main.css" type="text/css"/>
 		<script type="text/javascript" src="script.js"></script>
 	</head>
@@ -19,7 +14,6 @@
 		<div class="container-fluid">
 			<nav class="navbar navbar-default">
 				<div class="container-fluid">
-					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 							<span class="sr-only">Toggle navigation</span>
@@ -28,8 +22,6 @@
 							<span class="icon-bar"></span>
 						</button>
 					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<li id="reinforcements" class="reinforcements active">
@@ -49,10 +41,9 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li><a id="reset-button" href="#">Reset</a></li>
 						</ul>
-					</div><!-- /.navbar-collapse -->
-				</div><!-- /.container-fluid -->
+					</div>
+				</div>
 			</nav>
-				
 			<div class="col-lg-2 col-md-2">
 				<div class="panel panel-default">
 					<div class="panel-body">
@@ -63,10 +54,9 @@
 					</div>
 				</div>
 			</div>
-				
 			<div class="col-lg-8 col-md-8 col-sm-12 container">
-				<div class="image">
-					<image id="game-board-image" class="game-board" src="Risk Board.png" USEMAP="#board-bounderies"> 
+				<div id="board-container" class="image">
+					<!--<img id="game-board-image" class="game-board" src="Risk Board.jpg" USEMAP="#board-bounderies"/>-->
 					<span id="west-australia-troops" class="troop-number west-australia">0</span>
 					<span id="east-australia-troops" class="troop-number east-australia">0</span>
 					<span id="new-guinea-troops" class="troop-number new-guinea">0</span>
@@ -174,7 +164,7 @@
 							<p>Continents Controlled: <span id="white-continents">0</span></p>
 							<p>Total Troops: <span id="white-troops">0</span></p>
 						</div>
-						<div id="blue-player-elements" class="player-stats-detail hidden">
+						<div id="blue-player-elements" class="player-stats-detail">
 							<p class="player-headings">Blue</p>
 							<p>Countries Controlled: <span id="blue-countries">0</span></p>
 							<p>Continents Controlled: <span id="blue-continents">0</span></p>
