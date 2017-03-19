@@ -5,13 +5,11 @@ countryArray = ["west-australia","east-australia","new-guinea","indonesia","sian
 					"ukraine","southern-europe","northern-europe","scandinavia","western-europe","great-britain","iceland",
 					"central-america","eastern-united-states","quebec","greenland","western-united-states","ontario",
 					"alberta","northwest-territory","alaska"];
-
 countryGraph = [
 					["east-australia", "new-guinea", "indonesia"],
 					["west-australia", "new-guinea"],
 					["west-australia", "east-australia", "indonesia"],
-					["west-australia", "new-guinea"],
-					
+					["west-australia", "new-guinea"], //Australia	
 					["indonesia", "china", "india"],
 					["sian", "china", "afghanistan", "middle-east"],
 					["sian", "mongolia", "siberia", "ural", "afghanistan", "india"],
@@ -23,28 +21,24 @@ countryGraph = [
 					["india", "afghanistan", "ukraine", "southern-europe", "egypt", "east-africa"],
 					["india", "china", "ural", "ukraine", "middle-east"],
 					["afghanistan", "china", "siberia", "ukraine"],
-					["china", "mongolia", "irkutsk", "yakutsk", "ural"],
-					
-					["madagascar", "east-africa", "congo"], //TOP CLOCKWISE FROM NOW
+					["china", "mongolia", "irkutsk", "yakutsk", "ural"], //Asia
+					["madagascar", "east-africa", "congo"], 
 					["east-africa", "south-africa"],
 					["east-africa", "south-africa", "north-africa"],
 					["middle-east", "madagascar", "south-africa", "congo", "north-africa", "egypt"],
 					["western-europe", "southern-europe", "egypt", "east-africa", "congo", "brazil"],
-					["middle-east", "east-africa", "north-africa", "southern-europe"],
-					
+					["middle-east", "east-africa", "north-africa", "southern-europe"], //Europe
 					["peru", "brazil"],
 					["venizuela", "north-africa", "argentina", "peru"],
 					["venizuela", "brazil", "argentina"],
-					["central-america", "brazil", "peru"],
-					
+					["central-america", "brazil", "peru"], //South America
 					["ural", "afghanistan", "middle-east", "southern-europe", "northern-europe", "scandinavia"],
 					["northern-europe", "ukraine", "middle-east", "egypt", "north-africa", "western-europe"],
 					["scandinavia", "ukraine", "southern-europe", "western-europe", "great-britain"],
 					["ukraine", "northern-europe", "great-britain", "iceland"],
 					["great-britain", "northern-europe", "southern-europe", "north-africa"],
 					["iceland", "scandinavia", "northern-europe", "western-europe"],
-					["greenland", "scandinavia", "great-britain"],
-					
+					["greenland", "scandinavia", "great-britain"], //Europe
 					["western-united-states", "eastern-united-states", "venizuela"],
 					["ontario", "quebec", "central-america", "western-united-states"],
 					["greenland", "eastern-united-states", "ontario"],
@@ -53,8 +47,8 @@ countryGraph = [
 					["greenland", "quebec", "eastern-united-states", "western-united-states", "alberta", "northwest-territory"],
 					["northwest-territory", "ontario", "western-united-states", "alaska"],
 					["greenland", "ontario", "alberta", "alaska"],
-					["northwest-territory", "alberta", "kamchatka"]
-					]
+					["northwest-territory", "alberta", "kamchatka"] //North America
+				];
 					
 var	  blackCountries = []
 	, whiteCountries = []
@@ -83,12 +77,12 @@ $(document).ready(function() {
 	document.getElementById("board-container").appendChild(boardImage);
 	$('#black-player-elements .player-headings').toggleClass('bold');
 	$('#add-reinforcements-button').click(function(){
+		var i, j;
 		var remainingTroops = parseInt(document.getElementById('reinforcements-remaining-number').innerHTML);
 		troopsToAdd = parseInt($('#reinforcements-num-dropdown option:selected').text());
 		selectedCountry = $('#selected-country').text();
 		if ((troopsToAdd <= remainingTroops) && (selectedCountry != "Select Country")){
 			selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
-			var i, j;
 			found = false;
 			for (i=0; i < numberOfPlayers; i++){
 				for (j=0; j < playerArray[i].length; j++){
@@ -110,51 +104,42 @@ $(document).ready(function() {
 			} else alert("Player must add troops to a country they control");
 		}
 	});	
-	
 	$('#attack-button').click(function(){
+		var defendingPlayer, defendingTroops, attackingTroops, i, j, k, numCompetingDie;
+		var defendingRoll = []; 
+		var attackingRoll = [];
+		foundDefending = foundAttacking = false;
 		attackingCountry = $('#selected-country').text();
 		defendingCountry = String($('#defending-country-dropdown option:selected').text());
 		if (attackingCountry != "Select Country" && (defendingCountry != "Select Country")){
 			attackingCountry = attackingCountry.replace(/\s+/g, '-').toLowerCase();
 			defendingCountry = defendingCountry.replace(/\s+/g, '-').toLowerCase();
 		}
-		var i, attackingTroops;
-		foundAttacking = false;
-		for (i=0; i < playerArray[playerTurn].length; i++){
-			if (playerArray[playerTurn][i][0] == attackingCountry){
-				foundAttacking = true;
-				attackingTroops = playerArray[playerTurn][i][1] - 1; //one troop must stay on attacking country
+		i = findIndexOfPlayerCountry(playerTurn, attackingCountry);
+		for (defendingPlayer=0; defendingPlayer < numberOfPlayers; defendingPlayer++){
+			j = findIndexOfPlayerCountry(defendingPlayer, defendingCountry);
+			if (j != -1){
+				defendingTroops = playerArray[defendingPlayer][j][1]
+				foundDefending = true;
 				break;
 			}
 		}
-		foundDefending = false;
-		var defendingPlayer, j, defendingTroops;
-		for (defendingPlayer=0; defendingPlayer < numberOfPlayers; defendingPlayer++){
-			for (j=0; j < playerArray[defendingPlayer].length; j++){
-				if (playerArray[defendingPlayer][j][0] == defendingCountry){
-					defendingTroops = playerArray[defendingPlayer][j][1]
-					foundDefending = true;
-					break;
-				}
-			}
-			if (foundDefending == true){
-				break;
-			}
+		if (i != -1){
+			attackingTroops = attackingTroops = $('#attack-force-num-dropdown option:selected').text();
+			foundAttacking = true;
 		}
 		if ((foundAttacking == true) && (foundDefending == true) && (defendingPlayer != playerTurn)){
-			defendingRoll = [];
-			attackingRoll = [];
-			for (var k=0; k < Math.min(defendingTroops -1,2); k++){
+			for (k=0; k < Math.min(defendingTroops,2); k++){
 				defendingRoll.push(Math.floor(Math.random() * 6 + 1));
 			}
-			for (var k=0; k < Math.min(attackingTroops -1,3); k++){
+			for (k=0; k < Math.min(attackingTroops,3); k++){
 				attackingRoll.push(Math.floor(Math.random() * 6 + 1));
-				console.log("one roll");
 			}
 			attackingRoll.sort().reverse();
 			defendingRoll.sort().reverse();
 			displayRoll(attackingRoll, defendingRoll, Math.min(defendingTroops,3));
-			for (var k=0; k < Math.min(attackingRoll.length, defendingRoll.length); k++){
+			numCompetingDie = Math.min(attackingRoll.length, defendingRoll.length);
+			for (k=0; k < numCompetingDie; k++){
 				if (attackingRoll[0] > defendingRoll[0]){
 					playerArray[defendingPlayer][j][1] -= 1;
 				}
@@ -174,7 +159,7 @@ $(document).ready(function() {
 				}
 				displayTroops(numberOfPlayers);
 				updatePlayerStats(numberOfPlayers);
-				updateNumDropdown();
+				updateNumDropdown(findActiveTroops(attackingCountry));
 			}
 		}
 		else if (defendingPlayer == playerTurn) alert("Player must not attack a country they control");
@@ -281,10 +266,10 @@ function toggleBold(playerNumber){
 }
 
 function updateLowerUI(){
-	selectedCountry = $('#selected-country').text();
+	var selectedCountry = $('#selected-country').text();
+	var i, j;
 	if (selectedCountry != "Select Country"){
 		selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
-		var i, j;
 			found = false;
 			for (i=0; i < numberOfPlayers; i++){
 				for (j=0; j < playerArray[i].length; j++){
@@ -297,28 +282,28 @@ function updateLowerUI(){
 					break;
 				}
 			}
-		activeTroops = findActiveTroops(playerArray[i][j][1]); //-1 as one troop in country must stay
+		activeTroops = findActiveTroops(playerArray[i][j][0]); //-1 as one troop in country must stay
 		updateNumDropdown(activeTroops);
 		updateCountryDropdown();
 	}
 }
+
 function updateCountryDropdown(){
+	var k, neighbourOption, neighbour;
+	var selectedCountry = $('#selected-country').text();
 	if (!$('#attack-lower-UI').hasClass('hidden')){
 		$('#defending-country-dropdown').empty();
-		selectedCountry = $('#selected-country').text();
 		if (selectedCountry != "Select Country"){
 			selectedCountry = selectedCountry.replace(/\s+/g, '-').toLowerCase();
 			j = findCountryIndex(selectedCountry);
-			for (var k=0; k<countryGraph[j].length; k++){
+			for (k=0; k<countryGraph[j].length; k++){
 				neighbour = countryGraph[j][k];
 				neighbour = neighbour.replace(/-+/g, ' ');			
 				neighbour = neighbour.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-				var neighbourCountry = $('<option></option>').attr("value", "option value").text(neighbour);
-				$('#defending-country-dropdown').append(neighbourCountry);
+				neighbourOption = $('<option></option>').attr("value", "option value").text(neighbour);
+				$('#defending-country-dropdown').append(neighbourOption);
 			}
 		}
-	
-	
 	} else if (!$('#fortification-lower-UI').hasClass('hidden')){
 		$('#fortify-country-dropdown').empty();
 		if (selectedCountry != "Select Country"){
@@ -326,8 +311,8 @@ function updateCountryDropdown(){
 			connectedCountries = findConnectedCountries(selectedCountry);
 			displayStrings = convertToDisplay(connectedCountries);
 			displayStrings.forEach(function(element){
-				var neighbourCountry = $('<option></option>').attr("value", "option value").text(element);
-					$('#fortify-country-dropdown').append(neighbourCountry);
+				neighbourOption = $('<option></option>').attr("value", "option value").text(element);
+					$('#fortify-country-dropdown').append(neighbourOption);
 			});	
 		}
 	}
@@ -356,9 +341,10 @@ function updateNumDropdown(activeTroops){
 }
 
 function changeNumDropdown(dropdown, activeTroops, prevSelectedNum){
+	var option, i;
 	dropdown.empty();
-	for (var i=1; i <= activeTroops; i++){
-		var option = $('<option></option>').attr("value", "option value").text(i);
+	for (i=1; i <= activeTroops; i++){
+		option = $('<option></option>').attr("value", "option value").text(i);
 		if (i == Math.min(prevSelectedNum, activeTroops)){
 			option.attr("selected", "selected");
 		}
@@ -367,8 +353,8 @@ function changeNumDropdown(dropdown, activeTroops, prevSelectedNum){
 }
 
 function findCountryIndex(country){
-	country = country.replace(/\s+/g, '-').toLowerCase();
 	var i;
+	country = country.replace(/\s+/g, '-').toLowerCase();
 		for (i=0; i<countryArray.length; i++){
 			if (countryArray[i] == country){
 				break;
@@ -384,19 +370,21 @@ function setMapAttributes(){
 	["siberia", 1032, 138],["south-africa", 782, 789],["madagascar", 907, 782],["congo", 771, 657],["east-africa", 855, 615],
 	["north-africa", 655, 540],["egypt", 770, 500],["argentina", 364, 729],["brazil", 453, 588],["peru", 325, 594],["venizuela", 328, 494],
 	["ukraine", 825, 227],["southern-europe", 718, 355],["northern-europe", 702, 284],["scandinavia", 705, 155],["western-europe", 607, 384],
-	["great-britain", 576, 272],["iceland", 596, 162],["central-america", 228, 406],["eastern-united-states", 323, 322],["quebec", 390, 212],
+	["great-britain", 588, 272],["iceland", 596, 162],["central-america", 228, 406],["eastern-united-states", 323, 322],["quebec", 390, 212],
 	["greenland", 481, 69],["western-united-states", 216, 290],["ontario", 306, 205],["alberta", 206, 185],["northwest-territory", 231, 110],
 	["alaska", 82, 114]];
-	var xCoord, yCoord,
-	gameBoardHeight = $("#game-board-image").height(),
-	gameBoardWidth = $("#game-board-image").width(),
-	imageHeight = 892,
-	imageWidth = 1407,
-	mapArea = Math.round(30 / imageHeight * gameBoardHeight);	
+	var xCoord 
+		, yCoord
+		, countryName
+		, gameBoardHeight = $("#game-board-image").height()
+		, gameBoardWidth = $("#game-board-image").width()
+		, imageHeight = 892
+		, imageWidth = 1407
+		, mapArea = Math.round(30 / imageHeight * gameBoardHeight);	
 	countryCoordArray.forEach(function(element){
 		countryName = convertToDisplay([element[0]])[0];
-		xCoord = Math.round((element[1] / imageWidth) * gameBoardWidth);
-		yCoord = Math.round((element[2] / imageHeight) * gameBoardHeight);
+		xCoord = Math.round(((element[1]+25) / imageWidth) * gameBoardWidth);
+		yCoord = Math.round(((element[2]-15) / imageHeight) * gameBoardHeight);
 		$(("." + element[0])).attr('coords', xCoord + "," + yCoord + "," + mapArea);
 		$(('#' + element[0] + "-troops")).css({
 			"left": Math.round(xCoord-(mapArea/2))+"px",
@@ -406,24 +394,27 @@ function setMapAttributes(){
 }
 
 function assignCountries(numberOfPlayers){
-	var localCountryArray = countryArray.slice();
-	var countriesPerPlayer = Math.floor((42 / numberOfPlayers));
-	var leftOverCountries = 42 % numberOfPlayers;
-	var remainingCountries = 42;
-	for (var i=0; i < numberOfPlayers; i++){
-		for (var j=0; j < countriesPerPlayer; j++){
+	var	localCountryArray = countryArray.slice()
+		, countriesPerPlayer = Math.floor((42 / numberOfPlayers))
+		, leftOverCountries = 42 % numberOfPlayers
+		, remainingCountries = 42
+		, randomNum
+		, i
+		, j;
+	for (i=0; i < numberOfPlayers; i++){
+		for (j=0; j < countriesPerPlayer; j++){
 			randomNum = Math.floor(Math.random() * remainingCountries);
 			remainingCountries--;
 			playerArray[i].push([[localCountryArray[randomNum]][0],0]);
 			localCountryArray.splice(randomNum,1);
 		}
 	}
-	for (var i=0; i < remainingCountries; i++){
+	for (i=0; i < remainingCountries; i++){
 		randomNum = Math.floor(Math.random() * remainingCountries)
 		playerArray[i].push([[localCountryArray[randomNum]][0],0]);
 	}
-	for (var i=0; i < numberOfPlayers; i++){
-		for (var j=0; j < playerArray[i].length; j++){
+	for (i=0; i < numberOfPlayers; i++){
+		for (j=0; j < playerArray[i].length; j++){
 			currentCountry = document.getElementById(playerArray[i][j][0] + "-troops");
 			switch(i){
 				case 0:
@@ -450,7 +441,12 @@ function assignCountries(numberOfPlayers){
 }
 
 function assignTroops(numberOfPlayers){
-	var troopsPerPlayer;
+	var troopsPerPlayer
+		, numControlledCountries
+		, troopsPerCountry
+		, leftOverTroops
+		, i
+		, j;
 	switch(numberOfPlayers){
 		case 3:
 			troopsPerPlayer = 35;
@@ -467,22 +463,24 @@ function assignTroops(numberOfPlayers){
 		default:
 			break;
 	}
-	for (var i=0; i < numberOfPlayers; i++){
+	for (i=0; i < numberOfPlayers; i++){
 		numControlledCountries = playerArray[i].length;
 		troopsPerCountry = Math.floor(troopsPerPlayer / numControlledCountries);
 		leftOverTroops = troopsPerPlayer % numControlledCountries;
-		for (var j=0; j < leftOverTroops; j++){
+		for (j=0; j < leftOverTroops; j++){
 			playerArray[i][j][1] += 1;
 		}
-		for (var j=0; j < numControlledCountries; j++){
+		for (j=0; j < numControlledCountries; j++){
 			playerArray[i][j][1] += troopsPerCountry;
 		}
 	}
+	document.getElementById('reinforcements-remaining-number').innerHTML = calculateReinforcements(); //set first players reinforcements
 }
 
 function displayTroops(numberOfPlayers){
-	for (var i=0; i < numberOfPlayers; i++){
-		for (var j=0; j < playerArray[i].length; j++){
+	var currentCountry, i, j;
+	for (i=0; i < numberOfPlayers; i++){
+		for (j=0; j < playerArray[i].length; j++){
 			currentCountry = playerArray[i][j][0];
 			document.getElementById(currentCountry + "-troops").innerHTML = playerArray[i][j][1];
 		}
@@ -526,10 +524,11 @@ function setPlayerStats(numberOfPlayers){
 }
 
 function updatePlayerStats(numberOfPlayers){
-	for (var i=0; i < numberOfPlayers; i++){
+	var i, j, currentPlayerCountries, currentPlayerTroops;
+	for (i=0; i < numberOfPlayers; i++){
 		currentPlayerCountries = playerArray[i].length;
 		currentPlayerTroops = 0;
-		for (var j=0; j < currentPlayerCountries; j++){
+		for (j=0; j < currentPlayerCountries; j++){
 			currentPlayerTroops += playerArray[i][j][1];
 		}
 		switch(i){
@@ -564,7 +563,7 @@ function updatePlayerStats(numberOfPlayers){
 }
 
 function calculateReinforcements(){
-	return 10;
+	return Math.max(Math.floor(playerArray[playerTurn].length / 3), 3);
 }
 
 function getCurrentPlayerColor(){
@@ -639,7 +638,7 @@ function findActiveTroops(country){
 	var found = false;
 	for (i=0; i < numberOfPlayers; i++){
 		for (j=0; j < playerArray[i].length; j++){
-			if (playerArray[i][j][0] == selectedCountry){
+			if (playerArray[i][j][0] == country){
 				found = true;
 				break;
 			}
@@ -652,11 +651,12 @@ function findActiveTroops(country){
 }
 
 function findIndexOfPlayerCountry(playerIndex, country){
-	for (i=0; i<playerArray[playerIndex].length; i++){
+	for (var i=0; i<playerArray[playerIndex].length; i++){
 		if (playerArray[playerIndex][i][0] == country){
 			return i;
 		}
 	}
+	return -1;
 }
 
 function getActiveTroops(playerIndex, country){
